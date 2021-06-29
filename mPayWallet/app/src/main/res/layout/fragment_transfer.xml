@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".View.Fragment.MyQRCode.MyQRCodeFragment">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_Transfr_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick" />
+
+        <TextView
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/transfer" />
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layout_marginTop="@dimen/_15sdp"
+    android:padding="@dimen/_10sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Tv_transfr_Tot_Amt"
+            style="@style/Text_transfr_Bal_Amt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="€470.00" />
+
+        <TextView
+            android:id="@+id/Tv_transfr_Tot_AmtHead"
+            style="@style/Text_transfr_Bal_AmtHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/available_balance"
+            android:layout_marginTop="@dimen/_2sdp"/>
+        <LinearLayout
+            android:id="@+id/Layout_Scan_QRCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:orientation="horizontal"
+            android:background="@drawable/background_square_gray"
+            android:backgroundTint="#ebf2fb"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/qr_code"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scan_qr_code"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_12sdp"
+                android:lineHeight="@dimen/_21sdp"
+                android:lineSpacingExtra="0.09dp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/carmensans_medium"/>
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/Tv_transfr_Or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_12sdp"
+                android:lineHeight="@dimen/_21sdp"
+                android:lineSpacingExtra="0.09dp"
+                android:background="@drawable/circle_with_boarder"
+                android:layout_marginTop="@dimen/_21sdp"
+                android:fontFamily="@font/carmensans_medium"/>
+        <LinearLayout
+            android:id="@+id/Layout_Tranfer_QrDtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_21sdp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:id="@+id/Img_UserContact"
+                android:scaleType="fitCenter"
+                android:src="@drawable/avatar"
+                android:layout_gravity="center|start"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/userImg"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/Tv_Trnsfr_Contact_Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14sdp"
+                    android:lineHeight="@dimen/_24sdp"
+                    android:lineSpacingExtra="0.14dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/carmensans_medium"
+                    android:text="@string/name"
+                    android:layout_gravity="center|start"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/Tv_Trnsfr_Contact_Email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_11sdp"
+                    android:lineHeight="@dimen/_24sdp"
+                    android:textColor="#89909d"
+                    android:fontFamily="@font/carmensans_medium"
+                    android:text="Transcation complete!"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_gravity="center|start"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MTIL_Trnsfr_MobileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextInputLayout_Transfr"
+            android:hint="@string/enter_mobile_number"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:endIconMode="custom"
+            app:endIconTint="#589aec"
+            app:endIconDrawable="@drawable/ic_book"
+            app:endIconCheckable="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditText_Trnsfr_Mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="12"
+                style="@style/TextInputEditText_Transfr"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MTIL_Trnsfr_AmtLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextInputLayout_Transfr"
+            android:hint="@string/amount"
+            android:layout_marginTop="@dimen/_10sdp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditText_Trnsfr_Amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                style="@style/TextInputEditText_Transfr"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/Tv_transfr_Add_descrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_description"
+            android:layout_gravity="center|start"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            style="@style/TextInputLayout_Transfr"/>
+
+        <TextView
+            android:id="@+id/Button_TransferAmount"
+            android:layout_width="match_parent"
+            style="@style/ButtonStyle_Login"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="@string/transfer" />
+
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

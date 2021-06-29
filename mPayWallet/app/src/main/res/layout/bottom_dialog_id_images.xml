@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_BottomDialog_F_B"
+            android:layout_marginTop="@dimen/_43sdp"
+            android:gravity="center|left"
+            android:text="@string/front"
+            tools:ignore="RtlHardcoded" />
+
+        <LinearLayout
+            android:id="@+id/Linear_btm_dlg_Front"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/boarder_doted"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TextView_btm_dlg_Front"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextID_Upload"
+                android:gravity="center"
+                android:text="@string/upload_front" />
+
+            <ImageView
+                android:id="@+id/IV_btm_dlg_Front"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/cloud_computing" />
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <ImageView
+                android:id="@+id/IV_btm_dlg_Front_Sz_Nm"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_image"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:id="@+id/TV_btm_dlg_Front_Sz_NM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text_BottomDialog_Pass"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toRightOf="@+id/IV_btm_dlg_Front_Sz_Nm"
+                android:text="Passport-Front"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TV_btm_dlg_Front_Sz_No"
+                style="@style/Text_BottomDialog_Pass_MB"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/ProgressImagesize"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_3sdp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:theme="@style/ProgressBarStyle"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_BottomDialog_F_B"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:text="@string/back" />
+
+        <LinearLayout
+            android:id="@+id/Linear_btm_dlg_Back"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/boarder_doted"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TextView_btm_dlg_Back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextID_Upload"
+                android:gravity="center"
+                android:text="@string/upload_back" />
+
+            <ImageView
+                android:id="@+id/IV_btm_dlg_Back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/cloud_computing" />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/ButtonStyle_Login"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_43sdp"
+            android:gravity="center"
+            android:id="@+id/Tv_Click_Add_ID"
+            android:text="@string/ok"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,1456 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!--  Theme.AppCompat.Light.NoActionBar-->
+
+    <style name="Theme.MoneyCore" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimaryDark</item>
+        <item name="colorSecondaryVariant">@color/colorPrimary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!-- <item name="android:fontFamily">@font/ca</item>-->
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
+    </style>
+
+    <!--   <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+           <item name="android:background">@drawable/top_curved</item>
+       </style>
+
+       <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+           <item name="android:windowIsFloating">false</item>
+           <item name="bottomSheetStyle">@style/BottomSheet</item>
+       </style>-->
+
+
+    <!-- <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">-->
+
+    <!--    </style>-->
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textColorHint">@color/darkGrey</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="colorControlNormal">@color/darkGrey</item>
+        <item name="colorControlActivated">@color/darkGrey</item>
+    </style>
+
+
+    <style name="NavDrawerTextStyle">
+        <item name="android:textSize">@dimen/design_bottom_navigation_text_size</item>
+    </style>
+
+    <style name="Heading_8">
+
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="fontFamily">@font/carmensans_bold</item>
+    </style>
+
+    <style name="Heading_8_black">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="Heading_8_white">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+    </style>
+
+    <style name="Heading_10">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="Heading_10_black">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="Heading_10_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="Heading_10_blue">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="Heading_10_yellow">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <style name="Heading_12">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineSpacing">@dimen/_5sdp</item>
+    </style>
+
+    <style name="Heading_12_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Heading_12_black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Heading_12_grey">
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Heading_14">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+    <style name="Heading_14_black">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+
+    <style name="Heading_14_white">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="backgroundColor">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <style name="Heading_18_white">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Heading_18_black">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Heading_16">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+
+
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/_15sdp</item>
+    </style>
+
+    <style name="TextInputLayoutTheme" parent="Widget.Design.TextInputLayout">
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <!--<item name="font">@font/metropolish</item>-->
+    </style>
+
+    <style name="textViewStyleTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextInputLayoutThemeSignUP" parent="Widget.Design.TextInputLayout">
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/black</item>
+        android:fontFamily="@font/metropolish_medium"
+        <item name="hintTextColor">@color/black</item>
+    </style>
+    <!--************************ Text View **********************************************************-->
+    <style name="textViewStyle_colorPrimaryDark_12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="font">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0dp</item>
+    </style>
+    <style name="textViewStyle_colorPrimaryDark_15">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="font">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0dp</item>
+    </style>
+    <style name="textViewStyle_button_color_12_med">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/button_color</item>
+        <item name="font">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+    </style>
+    <style name="textViewStyle_violet_12_Medi">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/dark_desaturated_violet</item>
+        <item name="font">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_53sdp</item>
+        <item name="lineSpacing">0dp</item>
+    </style>
+    <style name="textViewStyle_violet_12_Medi_2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/dark_desaturated_violet</item>
+        <item name="font">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+    </style>
+    <style name="textViewStyle_colorPrimaryDark_12_Rgu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="font">@font/carmensans_regular</item>
+    </style>
+
+    <style name="textViewStyle_ExteraBold_black_welcome_30">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.18dp</item>
+    </style>
+
+    <style name="textViewStyle_welcome_subHeading_warm_grey_12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>>
+
+    <style name="textViewStyle_welcome_subHeading_warm_grey_14">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/suva_grey</item>
+        <item name="fontFamily">@font/carmensans_regular</item>
+    </style>
+
+    <style name="textViewStyle_welcome_skip_black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/skip_text</item>
+        <item name="android:inputType">textCapCharacters</item>
+        <item name="fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+
+    <style name="textViewStyle_welcome_next_colorPrimaryDark">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+
+    <style name="textViewStyle_Img_colorPrimaryDark_Robo_Med">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.8dp</item>
+    </style>
+
+    <style name="Heading_16_white">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+    </style>
+
+    <style name="Heading_14_black_Med">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+    </style>
+
+
+    <style name="TextAppearence.App.TextInputLayout"
+        parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/gray5</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+
+    <style name="Home_Heading_Hello_14_white">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineSpacing">0.17dp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+    </style>
+
+<!--*************************** TEXTINPUTLAYOUT *************************************************-->
+<!--*************************** TEXTVIEW PX *****************************************************-->
+    <!--30 PX-->
+    <style name="TextView_30_PX_Bold_Black">
+        <item name="android:textColor">@color/bold_text</item>
+        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.19dp</item>
+    </style>
+    <!--19 PX-->
+    <style name="TextView_19_PX_Regu_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_26sdp</item>
+        <item name="lineSpacing">0.15dp</item>
+    </style>
+    <!--25 PX-->
+    <style name="TextView_25_PX_Sm_Bold_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_19sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.19dp</item>
+    </style>
+    <!--16 PX-->
+    <style name="TextView_16_PX_Sm_Bold_PrimaryDark">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_17sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+    <!--15 PX-->
+    <style name="TextView_15_PX_Medi_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_15_PX_Regu_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_16sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_16_PX_Regu_Gray">
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+    <style name="TextView_15_PX_Sm_Bold_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_13sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <!--14 PX-->
+    <style name="TextView_14_PX_Medi_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_14_PX_Regu_Black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_14_PX_SM_Bold_Black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_17sdp</item>
+        <item name="lineSpacing">0.06dp</item>
+    </style>
+    <!--13 PX-->
+    <style name="TextView_13_PX_Regu_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <!--12 PX-->
+    <style name="TextView_12_PX_Regu_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+    </style>
+    <!--12 PX-->
+    <style name="TextView_12_PX_Medi_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+    </style>
+    <!--11 PX-->
+    <style name="TextView_11_PX_Regu_White">
+        <item name="android:textColor">@color/gray8</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <!--17 PX-->
+    <style name="TextView_17_PX_SM_Bold_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+    </style>
+
+
+
+
+    <!--21 PX-->
+    <style name="TextView_21_PX_Sm_Bold_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_14sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <!--15 PX-->
+    <!--12 PX-->
+    <!--<style name="TextView_12_PX_Regu_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_14sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+    </style>-->
+    <!--11 PX-->
+    <style name="TextView_11_PX_Medi_White">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_15sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+<!--*********************************************************************************************-->
+    <!--16-->
+    <style name="TextView_16_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <style name="TextView_16_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <style name="TextView_16_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <style name="TextView_16_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <style name="TextView_16_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <style name="TextView_16_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+    </style>
+    <!--14-->
+    <style name="TextView_14_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <style name="TextView_14_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <style name="TextView_14_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <style name="TextView_14_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <style name="TextView_14_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <style name="TextView_14_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+    </style>
+    <!--12-->
+    <style name="TextView_12_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_12_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_12_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_12_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_12_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="TextView_12_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <!--11-->
+    <style name="TextView_11_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_11_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_11_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_11_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_11_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <style name="TextView_11_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+    </style>
+    <!--10-->
+    <style name="TextView_10_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="TextView_10_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="TextView_10_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="TextView_10_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="TextView_10_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="TextView_10_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <!--8-->
+    <style name="TextView_8_Bold_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="TextView_8_Bold_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="TextView_8_Bold_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="TextView_8_Medium_Black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="TextView_8_Medium_White">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="TextView_8_Medium_Gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+<!--*********************************************************************************************-->
+    <style name="TextInputEditText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0dp</item>
+    </style>
+<!--**************************** Progress Bar ***************************************************-->
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/button_color</item>
+    </style>
+
+
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+    <style name="Text_Change_Lng_Head">
+        <item name="android:textColor">@color/bold_text</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+    </style>
+    <style name="Text_Change_Lng_Language">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+    </style>
+    <style name="ButtonStyle">
+        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="textAllCaps">true</item>
+        <item name="fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.3dp</item>
+
+    </style>
+    <!--WELCOME SCREENS-->
+    <style name="Text_Welcm_1_Skip">
+        <item name="android:textColor">@color/skip_text</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="Text_Welcm_1_Bold_Head">
+        <item name="android:layout_width">@dimen/_181sdp</item>
+        <item name="android:layout_height">@dimen/_60sdp</item>
+        <item name="android:textColor">@color/bold_text</item>
+        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.18dp</item>
+    </style>
+    <style name="Text_Welcm_1_Sub_Head">
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="Text_Welcm_1_Next">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+
+
+    <style name="Text_Welcm_2_Skip">
+        <item name="android:textColor">@color/skip_text</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="Text_Welcm_2_Bold_Head">
+        <item name="android:layout_width">@dimen/_198sdp</item>
+        <item name="android:layout_height">@dimen/_60sdp</item>
+        <item name="android:textColor">@color/bold_text</item>
+        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.18dp</item>
+    </style>
+    <style name="Text_Welcm_2_Sub_Head">
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="Text_Welcm_2_Next">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+
+
+    <style name="Text_Welcm_3_Skip">
+        <item name="android:textColor">@color/skip_text</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+    </style>
+    <style name="Text_Welcm_3_Bold_Head">
+        <item name="android:layout_width">@dimen/_230sdp</item>
+        <item name="android:layout_height">@dimen/_62sdp</item>
+        <item name="android:textColor">@color/bold_text</item>
+        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+        <item name="lineHeight">@dimen/_36sdp</item>
+        <item name="lineSpacing">0.18dp</item>
+    </style>
+    <style name="Text_Welcm_3_Sub_Head">
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.10dp</item>
+    </style>
+    <style name="Text_Welcm_3_Next">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_semibold</item>
+        <item name="lineHeight">@dimen/_22sdp</item>
+        <item name="lineSpacing">0.1dp</item>
+    </style>
+
+<!--LOGIN-->
+    <style name="Text_Login_head">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.17dp</item>
+    </style>
+    <style name="Text_Loin_Lng">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+    </style>
+
+    <style name="TextInputLayout_Login">
+        <item name="android:textColor">@color/dialog_head</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.07dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_Login">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="Text_Login_Forgotpassword">
+        <item name="android:textColor">@color/dark_desaturated_violet</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_53sdp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="ButtonStyle_Login">
+        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="textAllCaps">true</item>
+        <item name="fontFamily">@font/carmensans_medium</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.3dp</item>
+    </style>
+    <style name="Text_Login_DontAcct">
+        <item name="android:textColor">@color/dark_desaturated_violet</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="Text_Login_Signup">
+        <item name="android:textColor">@color/button_color</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+
+<!--SIGN UP-->
+    <style name="TextInputLayout_SignUp" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/dialog_head</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_SignUp">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextTerms_SignUp">
+        <item name="android:textColor">@color/drak_grey</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="TextID_Upload">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="TextDialog_Head">
+        <item name="android:textColor">@color/otp_head</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextDialog_SubHead">
+        <item name="android:textColor">@color/otp_head</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="EditTextDialog_OTP">
+        <item name="android:textColor">@color/otp_input</item>
+        <item name="android:textSize">@dimen/_22sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.17dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="EditTextDialog_OTPResend">
+        <item name="android:textColor">@color/suva_grey</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="Text_BottomDialog_Pass">
+        <item name="android:textColor">@color/suva_grey</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="Text_BottomDialog_Pass_MB">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.07dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="Text_BottomDialog_F_B">
+        <item name="android:textColor">@color/dialog_head</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+<!--TODO MY QR CODE-->
+    <style name="Text_myqr_Name">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="lineHeight">@dimen/_27sdp</item>
+        <item name="lineSpacing">0.18dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="Text_myqr_Mail">
+        <item name="android:textColor">@color/gray10</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_53sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="Text_myqr_share_down14">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_27sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="Text_myqr_share_down13">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_27sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+<!--TODO TRANSFER WALLET-->
+    <style name="Text_transfr_Bal_Amt">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.30dp</item>
+        <item name="android:fontFamily">@font/carmensans_bold</item>
+    </style>
+    <style name="Text_transfr_Bal_AmtHead">
+        <item name="android:textColor">@color/gray13</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.13dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="TextInputLayout_Transfr"
+            parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_Transfr">
+        <item name="android:textColor">@color/otp_input</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+<!--TODO ONFIRM-->
+    <style name="Text_confirm_msg">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="Text_confirm_Amt">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="Text_confirm_Name">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <!--TODO TRANSFER RECEIPT-->
+    <style name="Text_transfer_receipt">
+        <item name="android:textColor">@color/otp_input</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <!--TODO TRANSFER RECEIPT-->
+    <style name="TextInputLayout_PaySend"
+        parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_PaySend">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_19sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputLayout_Pay"
+        parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/dialog_head</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.07dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_Pay">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <!--TODO TRANSACTION HISTORY-->
+    <style name="TextView_TransHstry_To">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.14dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextView_TransHstry_DT">
+        <item name="android:textColor">@color/gray16</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.11dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="TextView_TransHstry_AMT">
+        <item name="android:textColor">@color/transaction_minus</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.16dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="TextView_TransHstry_TYP">
+        <item name="android:textColor">@color/gray17</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.12dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <!--TODO CASH IN-->
+    <style name="TextView_Crd_Bnk">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <style name="TextInputLayout_BtmDlgAddCard"
+        parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/dialog_head</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.07dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextInputEditText_BtmDlgAddCard">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="CheckBox_BtmDlgAddCard">
+        <item name="android:textColor">@color/gray18</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="lineHeight">@dimen/_24sdp</item>
+        <item name="lineSpacing">0.07dp</item>
+        <item name="android:fontFamily">@font/carmensans_regular</item>
+    </style>
+    <!-- TODO Confirm Cash in-->
+    <style name="TextViewCnfrmBankName">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextViewCnfrmAmtHead">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextViewCnfrmAmt">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_19sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextViewCnfrmPinHead">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <!--TODO WITHDRAW-->
+    <style name="TextInputEditText_Withdraw">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="lineSpacing">0.09dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextView_Abouttrans">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextView_Amt">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextView_Bnk">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+    <style name="TextView_doyou">
+        <item name="android:textColor">@color/gray14</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="lineHeight">@dimen/_21sdp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+<!--*********************************************************************************************-->
+    <style name="MyDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <!--selected Item color-->
+        <item name="colorControlActivated">@color/button_color</item>
+        <!-- arrow bordercolor(<>)-->
+        <item name="android:selectableItemBackgroundBorderless">@color/white</item>
+        <!-- Highlight item color-->
+        <item name="colorControlHighlight">#bdd7f8</item>
+        <!--Calender Background color -->
+        <item name="android:windowBackground">@color/white</item>
+        <!-- Ok Cancel Color-->
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <!-- Week TextColor-->
+        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <!-- Calender Number color arrow color (< >) -->
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <!--day , month-->
+        <item name="android:textColorPrimaryInverse">#bdd7f8</item>
+        <!-- year-->
+        <item name="android:textColorSecondaryInverse">#bdd7f8</item>
+
+    </style>
+
+    <style name="MyPopupOtherStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">#d2e2f6</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/white</item>
+
+
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="lineHeight">@dimen/_43sdp</item>
+        <item name="lineSpacing">0.08dp</item>
+        <item name="android:fontFamily">@font/carmensans_medium</item>
+    </style>
+
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.BioMetric.BiometricActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="@dimen/_141sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:textSize="@dimen/_23sdp"
+        android:text="@string/verification"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/carmensans_medium"/>
+    <TextView
+        android:layout_width="@dimen/_268sdp"
+        android:layout_height="@dimen/_41sdp"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/lift_and_rest_your_finger_anywhere_on_the_screen_repeatedly"
+        android:textColor="@color/subtextcolor"
+        android:fontFamily="@font/carmensans_regular"/>
+
+    <ImageView
+        android:id="@+id/Img_Biometric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_76sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/biometric" />
+
+</LinearLayout>
+</RelativeLayout>

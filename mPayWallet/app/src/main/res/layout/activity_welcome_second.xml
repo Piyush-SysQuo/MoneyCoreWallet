@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Relative_Main_Second"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_10sdp"
+    android:paddingTop="@dimen/_20sdp"
+    android:background="@color/white"
+    tools:context=".View.Activity.Welcome.WelcomeActivitySecond">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/TextView_Skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_Welcm_2_Skip"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="@string/skip"
+            android:textColor="@color/skip_text"
+            android:onClick="Skip"
+            android:padding="@dimen/_5sdp"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Relative_Header"
+        android:layout_above="@+id/Relative_Footer"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:src="@drawable/welcome_second" />
+
+            <TextView
+                style="@style/Text_Welcm_2_Bold_Head"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:gravity="center|left"
+                android:text="@string/transfer_money_safely" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text_Welcm_2_Sub_Head"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:gravity="center|left"
+                android:text="@string/the_new_normal_way_to_make_payment_quickly_and_safely" />
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/Relative_Footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:id="@+id/View_first"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_6sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/login_button"
+            android:backgroundTint="@color/light_blue" />
+
+        <View
+            android:id="@+id/View_second"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_6sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:layout_toRightOf="@+id/View_first"
+            android:background="@drawable/login_button" />
+
+        <View
+            android:id="@+id/View_third"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_6sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:layout_toRightOf="@+id/View_second"
+            android:background="@drawable/login_button"
+            android:backgroundTint="@color/light_blue" />
+
+        <TextView
+            android:id="@+id/TextView_Next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_Welcm_2_Next"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:gravity="right"
+            android:onClick="Next"
+            android:text="@string/next"
+            android:padding="@dimen/_5sdp" />
+    </RelativeLayout>
+</RelativeLayout>

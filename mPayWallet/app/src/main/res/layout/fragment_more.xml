@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View.Fragment.More.MoreFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/tt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        android:textSize="@dimen/_30sdp"
+        android:lineHeight="@dimen/_25sdp"
+        android:lineSpacingExtra="@dimen/_30sdp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/carmensans_extra_bold"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coming soon..."
+        android:textSize="@dimen/_15sdp"
+        android:lineHeight="@dimen/_20sdp"
+        android:lineSpacingExtra="1.3dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/carmensans_regular"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/tt1"
+        android:gravity="center"/>
+
+</RelativeLayout>

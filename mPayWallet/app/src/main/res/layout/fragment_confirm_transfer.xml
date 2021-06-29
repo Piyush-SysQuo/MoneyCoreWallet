@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Fragment.Confirm_Transfer.ConfirmTransferFragment">
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_Confirm_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/Tv_Receipt_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/confirm" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_37sdp"
+        android:elevation="@dimen/_13sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="#eeeeee">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="@dimen/_25sdp"
+            android:paddingBottom="@dimen/_25sdp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Tv_Confirm_msg"
+                style="@style/Text_confirm_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/you_are_about_to_pay"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/Tv_Confirm_Amt"
+                style="@style/Text_confirm_Amt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="€119.50"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/Tv_Confirm_To"
+                style="@style/Text_confirm_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/Tv_Confirm_Name"
+                style="@style/Text_confirm_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lucas Jade"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/Tv_Confirmation"
+                style="@style/Text_confirm_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/do_you_confirm_the_operation"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        style="@style/TextInputEditText_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Pin"
+        android:layout_gravity="center|start"
+        android:gravity="center"
+        android:textColor="@color/gray14"
+        android:layout_marginTop="@dimen/_27sdp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layoutDirection="ltr"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:id="@+id/EditTextConfrimFirst"
+                    android:inputType="numberPassword"
+                    style="@style/EditTextDialog_OTP"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:id="@+id/EditTextConfrimSecond"
+                    android:inputType="numberPassword"
+                    style="@style/EditTextDialog_OTP"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:id="@+id/EditTextConfrimThird"
+                    android:inputType="numberPassword"
+                    style="@style/EditTextDialog_OTP"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/EditTextConfrimFourth"
+                    android:maxLength="1"
+                    android:inputType="numberPassword"
+                    style="@style/EditTextDialog_OTP"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="2"
+            android:layout_marginTop="@dimen/_50sdp">
+            <TextView
+                android:layout_height="@dimen/_45sdp"
+                android:id="@+id/Button_ConfirmCancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/ButtonStyle_Login"
+                android:background="@drawable/background_round"
+                android:textColor="@color/button_color"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:layout_marginEnd="3.5dp"/>
+            <TextView
+                android:layout_height="@dimen/_45sdp"
+                android:id="@+id/Button_ConfirmTransfer"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/ButtonStyle_Login"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/confirm"
+                android:layout_marginStart="3.5dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

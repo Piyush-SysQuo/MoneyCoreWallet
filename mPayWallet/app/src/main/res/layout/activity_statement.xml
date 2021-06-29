@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".View.Activity.Statement.View.StatementActivity">
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/Iv_Statement_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/Tv_Receipt_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/statement" />
+
+        <ImageView
+            android:id="@+id/Iv_Statement_Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_stmt"
+            tools:ignore="OnClick" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/LLTH1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_below="@+id/Relative_Header">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_28sdp">
+
+            <LinearLayout
+                android:id="@+id/LL_Statement1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/Tv_Statement_Tot_Amt"
+                    style="@style/Text_transfr_Bal_Amt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="€470.00" />
+
+                <TextView
+                    android:id="@+id/Tv_transfr_Statement_AmtHead"
+                    style="@style/Text_transfr_Bal_AmtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:text="@string/available_balance" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recycler_Statement_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_below="@+id/LLTH1"
+        android:layout_above="@+id/Layout_Statement_Btn"/>
+    <LinearLayout
+        android:id="@+id/Layout_Statement_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_alignParentBottom="true">
+    <TextView
+        android:id="@+id/Tv_Statement_View"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_41sdp"
+        android:layout_weight="1"
+        android:background="@drawable/background_square_blue_white"
+        android:text="@string/view_statement"
+        android:gravity="center"
+        android:textColor="@color/button_color"
+        android:textSize="@dimen/_10sdp"
+        android:lineHeight="@dimen/_19sdp"
+        android:lineSpacingExtra="0.26dp"
+        android:fontFamily="@font/carmensans_medium"
+        android:layout_marginEnd="@dimen/_2sdp"/>
+    <TextView
+        android:id="@+id/Tv_Statement_Request"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_41sdp"
+        android:layout_weight="1"
+        android:background="@drawable/button_background"
+        android:text="@string/request_statement"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp"
+        android:lineHeight="@dimen/_19sdp"
+        android:lineSpacingExtra="0.26dp"
+        android:fontFamily="@font/carmensans_medium"
+        android:layout_marginStart="@dimen/_2sdp"/>
+    </LinearLayout>
+</RelativeLayout>

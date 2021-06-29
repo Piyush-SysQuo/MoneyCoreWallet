@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.ChangeLanguage.ChangeLanguageActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_16sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_Change_Lng_Head"
+            android:gravity="center|left"
+            android:text="@string/change_language" />
+    </RelativeLayout>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_mask_group"/>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Relative_Header"
+        android:layout_above="@+id/Tv_SaveLanguage"
+        android:fillViewport="true"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center|top">
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_English"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_63sdp"
+                android:onClick="englisgSelect"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:background="@drawable/background_square_gray"
+                android:backgroundTintMode="@color/gray"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/Img_English"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:src="@mipmap/uk"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:text="@string/english"
+                    style="@style/Text_Change_Lng_Language"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_France"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_63sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:onClick="frenchSelect"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:orientation="horizontal"
+                android:background="@drawable/background_square_gray"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_15sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/Img_France"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:src="@mipmap/france"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:text="@string/french"
+                    style="@style/Text_Change_Lng_Language" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/Tv_SaveLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_20sdp"
+        style="@style/ButtonStyle"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:onClick="SaveLanguage"
+        android:text="@string/save"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:visibility="gone"/>
+</RelativeLayout>

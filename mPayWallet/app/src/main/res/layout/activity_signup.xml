@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_Login_head"
+            android:gravity="center"
+            android:text="@string/create_new_account" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/TV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/create_new_account"
+        style="@style/Text_Login_head"
+        android:textSize="@dimen/_18sdp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="@color/colorPrimaryDark"/>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TV1"
+        android:layout_alignParentBottom="true"
+        android:fillViewport="true"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+<!--*********************************************************************************************-->
+<!--******************************FIRST NAMR*****************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_FirstNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                android:hint="@string/first_name"
+                android:layout_marginTop="@dimen/_30sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_FirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    style="@style/TextInputEditText_SignUp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--******************************MIDDLE NAMR*****************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_MiddleNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                android:hint="@string/middle_name"
+                android:layout_marginTop="@dimen/_20sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_MiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+        style="@style/TextInputEditText_SignUp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--********************************LAST NAME****************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_LastNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                android:hint="@string/last_name"
+                android:layout_marginTop="@dimen/_20sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_LastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+        style="@style/TextInputEditText_SignUp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--********************************PHONE NUMBER*************************************************-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <com.hbb20.CountryCodePicker
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ccp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        app:ccp_defaultNameCode="FR"
+                        app:ccp_showFlag="false"
+                        app:ccp_showNameCode="false"
+                        app:ccp_textSize="@dimen/_12sdp"
+                        style="@style/TextInputEditText_SignUp"
+                        app:ccpDialog_textColor="@color/warm_grey"
+                        app:ccp_contentColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/carmensans_bold"
+                        android:layout_marginTop="@dimen/_minus2sdp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightGrey"/>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/MTIL_mobileNumberLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                    android:hint="@string/phoneNo"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_minus3sdp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EditText_MobileNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:fontFamily="@font/carmensans_bold"
+                        style="@style/TextInputEditText_SignUp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+<!--*********************************************************************************************-->
+<!--******************************** TODO EMAIL ADDRESS *****************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_emailLayout_SignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                android:hint="@string/email"
+                android:layout_marginTop="@dimen/_20sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+        style="@style/TextInputEditText_SignUp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--******************************** TODO Date Of Birth *****************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_dobLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_SignUp"
+                android:hint="@string/dob"
+                android:layout_marginTop="@dimen/_20sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_DOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12sdp"
+                    android:focusable="false"
+        style="@style/TextInputEditText_SignUp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--******************************** TODO BUTTON SIGN IN ****************************************-->
+            <TextView
+                android:layout_width="match_parent"
+                style="@style/ButtonStyle_Login"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:onClick="nextClick"
+                android:text="Continue"/>
+<!--*********************************************************************************************-->
+<!--******************************** TODO SIGN IN ***********************************************-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_27sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text_Login_DontAcct"
+                    android:layout_gravity="center"
+                    android:text="@string/if_you_have_an_account" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text_Login_Signup"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_gravity="center"
+                    android:onClick="signInClick"
+                    android:text="@string/sign_in" />
+            </LinearLayout>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+        </LinearLayout>
+    </ScrollView>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+</RelativeLayout>

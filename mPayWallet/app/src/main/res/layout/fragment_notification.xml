@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Fragment.Notification.View.NotificationFragment"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:id="@+id/Iv_noti_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text_Login_head"
+            android:gravity="center"
+            android:text="@string/notifications" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/Tv_Noti_ClearAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:text="Clear All"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_10sdp"
+        android:lineHeight="@dimen/_45sdp"
+        android:lineSpacingExtra="0.12dp"
+        android:fontFamily="@font/carmensans_medium"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecycleV_Notification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/MainLayout_Adpt_AddCard">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/Iv_Adpt_AddCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/visa" />
+
+        <TextView
+            android:id="@+id/Tv_Adpt_AddCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_9sdp"
+            android:layout_weight="3"
+            android:fontFamily="@font/carmensans_regular"
+            android:gravity="center|start"
+            android:lineHeight="@dimen/_21sdp"
+            android:lineSpacingExtra="0.08dp"
+            android:text="@string/xxxxxxxxxxx"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_11sdp" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_9sdp">
+
+            <RadioButton
+                android:id="@+id/Rb_Adpt_AddCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:checked="false"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

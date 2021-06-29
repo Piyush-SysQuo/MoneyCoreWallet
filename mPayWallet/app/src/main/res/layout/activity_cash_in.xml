@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Activity.CashIn.View.CashInActivity">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_CashIn_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white"
+            tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/Tv_CashIn_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cash_in" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/LLTH1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Relative_Header"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_20sdp">
+
+                    <LinearLayout
+                        android:id="@+id/LL_CashIn1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/Tv_CashIn_Tot_Amt"
+                            style="@style/Text_transfr_Bal_Amt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="€470.00" />
+
+                        <TextView
+                            android:id="@+id/Tv_transfr_CashIn_AmtHead"
+                            style="@style/Text_transfr_Bal_AmtHead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:text="@string/available_balance" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_CashIn_Amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:hint="@string/amount"
+                app:prefixText="€"
+                app:prefixTextAppearance="@style/TextInputEditText_PaySend"
+                app:hintTextAppearance="@style/TextInputLayout_PaySend">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_CashIn_Amount"
+                    style="@style/TextInputEditText_PaySend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/carmensans_medium"
+                android:lineHeight="@dimen/_21sdp"
+                android:lineSpacingExtra="0.1dp"
+                android:text="@string/select_source"
+                android:textColor="@color/bold_text"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <LinearLayout
+                android:id="@+id/LL_CashIn2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/background_nocorner"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:padding="@dimen/_1sdp">
+
+                <LinearLayout
+                    android:id="@+id/Layout_CashIn_Card"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:onClick="selectCard"
+                    android:alpha="100">
+
+                    <TextView
+                        android:id="@+id/Tv_CashIn_Card"
+                        style="@style/TextView_Crd_Bnk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/credit_debit_card" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e0ebf9" />
+
+                <LinearLayout
+                    android:id="@+id/Layout_CashIn_Bank"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:onClick="selecBank"
+                    android:alpha="100"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/Tv_CashIn_Bank"
+                        style="@style/TextView_Crd_Bnk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/add_from_bank"
+                        android:textColor="@color/ensan_soft_gray"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerView_CashInCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:visibility="gone"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerView_CashInBank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:id="@+id/Layout_Add_Bank_Crd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/background_round"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/Tv_CashInAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:fontFamily="@font/carmensans_medium"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/add_new_card"
+                    android:textColor="@color/button_color"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+
+
+            <Switch
+                android:id="@+id/SwitchBtn_CashInRefill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:checked="false"
+                android:fontFamily="@font/carmensans_medium"
+                android:gravity="center"
+                android:lineHeight="@dimen/_21sdp"
+                android:lineSpacingExtra="0.08dp"
+                android:switchPadding="@dimen/_5sdp"
+                android:text="@string/auto_refill"
+                android:textColor="#515c6f"
+                android:textSize="@dimen/_10sdp"
+                android:thumb="@drawable/custom_thumb"
+                android:track="@drawable/custom_track" />
+
+
+            <LinearLayout
+                android:id="@+id/LL_CashIn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/carmensans_regular"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/day"
+                    android:textSize="@dimen/_10sdp" />
+
+                <LinearLayout
+                    android:id="@+id/LL_CashInRefillDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/background_light_boarder_dark_blue"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/Tv_CashInRefillDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:lineHeight="@dimen/_21sdp"
+                        android:lineSpacingExtra="0.08dp"
+                        android:text="20"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <ImageView
+                        android:id="@+id/Iv_CashInRefillDay"
+                        android:layout_width="@dimen/_7sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:background="@drawable/ic_dropdown"
+                        android:backgroundTint="@color/colorPrimaryDark" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/carmensans_regular"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/of_every_month"
+                    android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/LL_CashIn5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:fontFamily="@font/carmensans_regular"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/when_my_balance_is_under"
+                    android:textSize="@dimen/_10sdp" />
+
+                <LinearLayout
+                    android:id="@+id/LL_CashInRefillAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/background_light_boarder_dark_blue"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/Tv_CashInRefillAmt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:lineHeight="@dimen/_21sdp"
+                        android:lineSpacingExtra="0.08dp"
+                        android:text="€100.00"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <ImageView
+                        android:id="@+id/Iv_CashInRefillAmt"
+                        android:layout_width="@dimen/_7sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:background="@drawable/ic_dropdown"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Tv_CashInTransFeeHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/carmensans_medium"
+                android:gravity="center"
+                android:lineHeight="@dimen/_24sdp"
+                android:lineSpacingExtra="0.13dp"
+                android:text="@string/transaction_fees"
+                android:textColor="@color/bold_text"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/Tv_CashInTransFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/carmensans_regular"
+                android:gravity="center"
+                android:lineHeight="@dimen/_21sdp"
+                android:lineSpacingExtra="0.07dp"
+                android:text="$0.50 transaction fees will be charged."
+                android:textColor="#515c6f"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/Tv_CashIn_Contiue"
+                style="@style/ButtonStyle_Login"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/continue1"
+                android:onClick="continueAction"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

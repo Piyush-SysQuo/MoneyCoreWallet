@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/infoLayout_TransHstry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/Img_TransHstry"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/a5"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/userImg"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center|start">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_TransHstry_To"
+                android:id="@+id/txt_TransHstry_To"
+                android:text="frecharge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_TransHstry_DT"
+                android:id="@+id/TextView_TransHstry_Date"
+                android:text="11 May  10:30 AM"
+                android:layout_marginTop="@dimen/_2sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_TransHstry_To"
+                android:id="@+id/TextView_TransHstry_Status"
+                android:text="Confirmed"
+                android:fontFamily="@font/carmensans_regular"
+                android:layout_marginTop="@dimen/_2sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center|end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_TransHstry_AMT"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="-€50.00"
+                android:id="@+id/TextView_TransHstry_Amount"
+                android:textColor="@color/transaction_minus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_TransHstry_TYP"
+                android:text="Withdraw"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:id="@+id/TextView_TransHstry_TransactionType" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
