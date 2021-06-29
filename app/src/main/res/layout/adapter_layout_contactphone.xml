@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/infoLayout_Contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_37sdp"
+            android:layout_height="@dimen/_37sdp"
+            android:id="@+id/Img_UserContact"
+            android:scaleType="fitCenter"
+            android:src="@drawable/avatar"
+            android:layout_gravity="center|start"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_toRightOf="@+id/userImg"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/Tv_Adap_Contact_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sdp"
+                android:lineHeight="@dimen/_24sdp"
+                android:textColor="#272727"
+                android:fontFamily="@font/carmensans_regular"
+                android:text="@string/name"
+                android:layout_gravity="center|start"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Tv_Adap_Contact_Number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9sdp"
+                android:lineHeight="@dimen/_24sdp"
+                android:textColor="#89909d"
+                android:fontFamily="@font/carmensans_regular"
+                android:text="Transcation complete!"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center|start"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_Wallet"
+        android:icon="@drawable/ic_wallet"
+        android:title="@string/wallet" />
+    <item
+        android:id="@+id/navigation_Space"
+        android:icon="@drawable/ic_space"
+        android:title="@string/space" />
+    <item
+        android:id="@+id/navigation_ScanQR"
+        android:icon="@drawable/ic_qr_code_scan"
+        android:title="@string/scan_qr" />
+    <item
+        android:id="@+id/navigation_More"
+        android:icon="@drawable/ic_more"
+        android:title="@string/more" />
+</menu>

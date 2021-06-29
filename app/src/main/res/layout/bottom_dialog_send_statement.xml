@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MTIL_CashIn_Btm_Add_NameOnCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/email"
+            app:hintTextAppearance="@style/TextInputLayout_BtmDlgAddCard">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditText_CashIn_Btm_Add_NameOnCard"
+                style="@style/TextInputEditText_BtmDlgAddCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dialog_head"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/Tv_BTN_CashIn_AddCard"
+            style="@style/ButtonStyle_Login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_37sdp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:onClick="nextClick"
+            android:text="@string/mpos_send_button" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_10sdp">
+
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:layout_marginEnd="@dimen/_22sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImg"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/avatar" />
+
+        <LinearLayout
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/userImg"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_14_PX_Regu_Black"
+                android:id="@+id/txt_username"
+                android:text="William daniels" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_11_PX_Regu_White"
+                android:id="@+id/txt_date"
+                android:text="11 May  10:30 AM"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_14_PX_Medi_White"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:id="@+id/txt_amount"
+                android:textColor="@color/transaction_minus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView_11_PX_Regu_White"
+                android:text="Withdraw"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textColor="#aba9a9"
+                android:id="@+id/txt_transactionType" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.SuccessfulTransfer.SuccessfulTransferActivity"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/_20sdp"
+    android:paddingEnd="@dimen/_20sdp">
+    <ImageView
+        android:id="@+id/Iv_Successful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:onClick="backPressed"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/close"
+        tools:ignore="OnClick"/>
+    <ImageView
+        android:id="@+id/Iv_Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="backPressed"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:src="@drawable/ic_transfe_success"
+        tools:ignore="OnClick"/>
+
+    <TextView
+        android:id="@+id/Tv_Success_Msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paid_successfully_to"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#1c1c1c"
+        android:textSize="@dimen/_12sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/carmensans_regular"/>
+
+    <TextView
+        android:id="@+id/Tv_Transfer_SucesName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lucas Jade"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#1c1c1c"
+        android:textSize="@dimen/_15sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+
+    <LinearLayout
+        android:id="@+id/Linear_btm_dlg_Front"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/boarder_doted_prime"
+        android:gravity="center"
+        android:paddingStart="@dimen/_42sdp"
+        android:paddingEnd="@dimen/_42sdp"
+        android:paddingTop="@dimen/_14sdp"
+        android:paddingBottom="@dimen/_14sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Tv_Transfer_Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_26sdp"
+            android:lineHeight="@dimen/_22sdp"
+            android:lineSpacingExtra="0.2dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="€173.50" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Tv_Transfer_OrderID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order ID : 98838567"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#1c1c1c"
+        android:textSize="@dimen/_12sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+
+    <TextView
+        android:id="@+id/Tv_Transfer_OrderDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 May, 2021   10:30 AM"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#1c1c1c"
+        android:textSize="@dimen/_10sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/carmensans_regular"/>
+
+</LinearLayout>

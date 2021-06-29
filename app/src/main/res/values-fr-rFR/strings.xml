@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mPay</string>
+    <string name="login">Connexion</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="don_t_have_an_account">Je n\'ai pas de compte</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="select_language">Choisir la langue</string>
+    <string name="skip">SAUTER</string>
+    <string name="easy_to_check_statement">Relevé facile à vérifier</string>
+    <string name="ok">d\'accord</string>
+    <string name="biometric">Biométriques</string>
+    <string name="get_started">Commencer</string>
+    <string name="secure_your_money">Sécurisez votre argent</string>
+    <string name="add_you_balance_here_don_t_worry_about_it_its_fully_secure">Ajoutez votre solde ici. Ne vous inquiétez pas, c\'est entièrement sécurisé</string>
+    <string name="transfer_money_safely">Transférer de l\'argent en toute sécurité</string>
+    <string name="tranfer_money_account_to_account_don_t_share_this_id_anywhere_only_you_an_manage_transaction">Transférer un compte d\'argent à un compte. Ne partagez cet identifiant nulle part, seulement vous gérez une transaction.</string>
+    <string name="next">Suivant</string>
+
+
+
+
+    <string name="verification">Verification</string>
+    <string name="lift_and_rest_your_finger_anywhere_on_the_screen_repeatedly">Lift and rest your finger anywhere on the screen repeatedly.</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="first_name">First Name *</string>
+    <string name="last_name">Last Name *</string>
+    <string name="xxxxxxxxxxx">xxxxxxxxxxx</string>
+    <string name="email">Email ID</string>
+    <string name="dob">Date of Birth *</string>
+    <string name="phoneNo">Phone Number *</string>
+    <string name="id_type">ID Type</string>
+    <string name="passportno">Passport No.</string>
+    <string name="i_have_read_and_accept_terms_and_conditions">I have read and accept terms and conditions</string>
+    <string name="residence">Residence Permits</string>
+    <string name="passport">Passport</string>
+    <string name="sign_in">Sign In</string>
+    <string name="front">Front</string>
+    <string name="upload_front">Upload Front</string>
+    <string name="back">Back</string>
+    <string name="upload_back">Upload Back</string>
+    <string name="change_language">Change Language</string>
+    <string name="french">French</string>
+    <string name="save">Save</string>
+    <string name="english">English</string>
+    <string name="change_number">Change Number</string>
+    <string name="resend_otp">Resend OTP in</string>
+    <string name="verify">VERIFY</string>
+    <string name="easy_fast_and_secure">Easy, Fast and Secure</string>
+    <string name="the_app_to_handle_all_your_payments_send_receive_money_pay_bills_merchants_no_registration_fees_no_minimum_balance_no_bank_account_required"><![CDATA[The app to handle all your payments! Send & receive money , Pay bills & Merchants. NO registration fees, NO minimum balance & NO bank account required.]]></string>
+    <string name="the_new_normal_way_to_make_payment_quickly_and_safely">The New normal way to make payment quickly and safely</string>
+    <string name="share_money_to_family_and_friends">Share Money to Family and Friends</string>
+    <string name="transfer_money_to_your_family_and_friends_instantly_in_a_secure_and_convenient_way">Transfer money to your family and friends instantly in a secure and convenient way.</string>
+    <string name="if_you_have_an_account">If you have an account</string>
+    <string name="forgot_passwordhead">Forgot Password</string>
+    <string name="email_id_phone_number">Email ID / Phone Number</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_gallery">Choose from Gallery</string>
+    <string name="cancel">Cancel</string>
+    <string name="selectImage">Select Image</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="space">Space</string>
+    <string name="more">More</string>
+    <string name="home">Home</string>
+    <string name="transfer">Transfer</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="wallet">Wallet</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_qr_code">My QR Code</string>
+    <string name="share_qr_code">Share QR Code</string>
+    <string name="download_qr_code">Download QR Code</string>
+    <string name="notifications">Notifications</string>
+    <string name="transfer_to_space">Transfer to Space</string>
+    <string name="transfer_to_wallet">Transfer to Wallet</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="or">OR</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="amount">Amount</string>
+    <string name="add_description">+ Add Description</string>
+    <string name="residence_permits">Residence Permits</string>
+    <string name="driving_licence">Driving Licence</string>
+    <string name="national_id">National ID</string>
+    <string name="align_qr_code_within_frame_to_scan">Align QR code within frame to scan</string>
+    <string name="scanning_code">Scanning Code...</string>
+    <string name="confirm">Confirm</string>
+    <string name="do_you_confirm_the_operation">Do you confirm the operation ?</string>
+    <string name="successfully_transfered_to">Successfully Transfered to</string>
+    <string name="transfer_receipt">Transfer Receipt</string>
+    <string name="name">Name</string>
+    <string name="amount_transfered">Amount Transfered</string>
+    <string name="transaction_fees">Transaction fees</string>
+    <string name="new_balance">New Balance</string>
+    <string name="pay">Pay</string>
+    <string name="history">History</string>
+    <string name="cash_in">Cash In</string>
+    <string name="withdraw">Withdrawal</string>
+    <string name="statement">Statement</string>
+    <string name="top_up">TOP UP</string>
+    <string name="payment_description_optional">Payment Description (optional)</string>
+    <string name="paid_successfully_to">Paid Successfully to</string>
+    <string name="pay_receipt">Pay Receipt</string>
+    <string name="you_are_about_to_transfer">You are about to Transfer</string>
+    <string name="you_are_about_to_pay">You are about to pay</string>
+    <string name="contact_list">Contact List</string>
+    <string name="search_by_name">Search by Name</string>
+    <string name="transaction_history">Transaction history</string>
+    <string name="get_detail_statement">Get detail statement</string>
+    <string name="successful">Successful</string>
+    <string name="failed">Failed</string>
+    <string name="select_source">Select Source</string>
+    <string name="credit_debit_card">Credit/Debit Card</string>
+    <string name="add_from_bank">Add from Bank</string>
+    <string name="add_new_bank">+ Add New Bank</string>
+    <string name="add_new_card">+ Add New Card</string>
+    <string name="auto_refill">Auto-Refill</string>
+    <string name="day">Day</string>
+    <string name="of_every_month">of every month.</string>
+    <string name="when_my_balance_is_under">When my balance is under</string>
+    <string name="continue1">Continue</string>
+    <string name="card_holder_name">Card Holder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="add">Add</string>
+    <string name="show_datepicker">Click to show Picker</string>
+    <string name="current_select">Values select:</string>
+    <string name="with_ranges">Show with date ranges</string>
+    <string name="Month_Year">Month/Year</string>
+    <string name="short_months">Short Months</string>
+    <string name="select_bank">Select Bank</string>
+    <string name="userid">Userid</string>
+    <string name="enter_password_pin">Enter Password/PIN</string>
+    <string name="transaction_amount">Transaction Amount</string>
+    <string name="enter_pin">Enter Pin</string>
+    <string name="cash_in_receipt">Cash In Receipt</string>
+    <string name="source_account">Source account</string>
+    <string name="amount_received">Amount Received</string>
+    <string name="amount_withdraw">Amount Withdraw</string>
+    <string name="disbursement_type">Disbursement type</string>
+    <string name="add_new_account">+ Add New Account</string>
+    <string name="confirm_withdraw">Confirm Withdraw</string>
+    <string name="you_are_about_to_withdraw">You are about to Withdraw</string>
+    <string name="to">to</string>
+    <string name="withdraw_receipt">Withdraw Receipt</string>
+    <string name="view_statement">View Statement</string>
+    <string name="request_statement">Request Statement</string>
+
+
+    <string-array name="id_proof">
+        <item>@string/residence</item>
+        <item>@string/passport</item>
+        <item>@string/driving_licence</item>
+        <item>@string/national_id</item>
+    </string-array>
+
+    <string-array name="image_dialog_profile">
+        <item>@string/take_photo</item>
+        <item>@string/choose_gallery</item>
+        <item>@string/cancel</item>
+    </string-array>
+</resources>

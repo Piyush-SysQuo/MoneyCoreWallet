@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Fragment.Notification.View.NotificationFragment"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/_20sdp"
+    android:paddingEnd="@dimen/_20sdp">
+        <ImageView
+            android:id="@+id/Iv_Scan_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="backPressed"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/close"
+            tools:ignore="OnClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_qr_code"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_14sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:lineSpacingExtra="0.18dp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/align_qr_code_within_frame_to_scan"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/gray15"
+        android:textSize="@dimen/_10sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:lineSpacingExtra="0.13dp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+    <RelativeLayout
+        android:id="@+id/Layout_scan_QR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_scan_boarder"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:padding="@dimen/_14sdp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qr_code_my"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scanning_code"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/gray15"
+        android:textSize="@dimen/_11sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:lineSpacingExtra="0.14dp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+
+    <TextView
+        android:id="@+id/Tv_ScanQR_Cancel"
+        android:layout_width="match_parent"
+        style="@style/ButtonStyle_Login"
+        android:layout_marginTop="@dimen/_37sdp"
+        android:background="@drawable/background_square_blue"
+        android:textColor="@color/button_color"
+        android:gravity="center"
+        android:text="@string/cancel"/>
+
+</LinearLayout>

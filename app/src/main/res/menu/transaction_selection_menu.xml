@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cash_in"
+        android:title="@string/cash_in" />
+    <item
+        android:id="@+id/withdraw"
+        android:title="@string/withdraw" />
+    <item
+        android:id="@+id/successful"
+        android:title="@string/successful" />
+    <item
+        android:id="@+id/failed"
+        android:title="@string/failed" />
+</menu>

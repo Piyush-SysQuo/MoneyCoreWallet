@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/residence_permits"
+        android:title="@string/residence_permits" />
+    <item
+        android:id="@+id/Passport"
+        android:title="@string/passport" />
+    <item
+        android:id="@+id/driving_licence"
+        android:title="@string/driving_licence" />
+    <item
+        android:id="@+id/national_id"
+        android:title="@string/national_id" />
+</menu>

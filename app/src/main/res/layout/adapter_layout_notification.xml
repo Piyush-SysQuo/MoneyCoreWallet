@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_33sdp"
+            android:layout_height="@dimen/_33sdp"
+            android:id="@+id/imageView1"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center|start"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_toRightOf="@+id/userImg"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/Tv_Adap_Noti_Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:lineSpacingExtra="0.14dp"
+                android:lineHeight="@dimen/_45sdp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/carmensans_medium"
+                android:text="Transaction"
+                android:layout_gravity="center|start"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Tv_Adap_Noti_Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sdp"
+                android:lineSpacingExtra="0.12dp"
+                android:lineHeight="@dimen/_45sdp"
+                android:textColor="@color/button_color"
+                android:fontFamily="@font/carmensans_regular"
+                android:text="Transcation complete!"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_gravity="center|start"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Tv_Adap_Noti_Amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:lineSpacingExtra="0.11dp"
+                android:lineHeight="@dimen/_45sdp"
+                android:textColor="@color/gray11"
+                android:fontFamily="@font/carmensans_regular"
+                android:text="Amount : $200"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_gravity="center|start"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_gravity="center|end">
+
+            <TextView
+                android:id="@+id/Tv_Adap_Noti_DT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9sdp"
+                android:lineSpacingExtra="0.11dp"
+                android:lineHeight="@dimen/_45sdp"
+                android:textColor="@color/gray12"
+                android:fontFamily="@font/carmensans_regular"
+                android:text="10:30 AM"
+                android:layout_gravity="center|end"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_Wallet">
+
+    <fragment
+        android:id="@+id/navigation_Wallet"
+        android:name="com.mpay.wallet.View.Fragment.Wallet.WalletFragment"
+        android:label="@string/wallet"
+        tools:layout="@layout/fragment_wallet" />
+
+    <fragment
+        android:id="@+id/navigation_Space"
+        android:name="com.mpay.wallet.View.Fragment.Space.SpaceFragment"
+        android:label="@string/space"
+        tools:layout="@layout/fragment_space" />
+
+    <fragment
+        android:id="@+id/navigation_ScanQR"
+        android:name="com.mpay.wallet.View.Fragment.Scan_QR.ScanQRFragment"
+        android:label="@string/scan_qr"
+        tools:layout="@layout/fragment_scan_qr" />
+
+    <fragment
+        android:id="@+id/navigation_More"
+        android:name="com.mpay.wallet.View.Fragment.More.MoreFragment"
+        android:label="@string/more"
+        tools:layout="@layout/fragment_more" />
+</navigation>
