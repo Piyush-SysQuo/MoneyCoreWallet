@@ -19,9 +19,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -132,14 +135,14 @@ public class SignupSecondActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
-                MTIL_idTypeLayout_Menu.setEndIconOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        showPopupMenu(view, false, R.style.MyPopupOtherStyle);
-                    }
-                });   }
+            }
         });
-
+        MTIL_idTypeLayout_Menu.setEndIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopupMenu(view, false, R.style.MyPopupOtherStyle);
+            }
+        });
         IV_frontImg_Cross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,7 +188,41 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         });
 
+    }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (view.getId())
+        {
+            case R.id.EditText_Password:
 
+                switch ( motionEvent.getAction() ) {
+                    case MotionEvent.ACTION_DOWN:
+                        Toast.makeText(this,"show",Toast.LENGTH_SHORT).show();
+                        EditText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        EditText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        Toast.makeText(this,"hide",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                break;
+
+            case R.id.EditText_RePassword:
+
+                switch ( motionEvent.getAction() ) {
+                    case MotionEvent.ACTION_DOWN:
+                        Toast.makeText(this,"show",Toast.LENGTH_SHORT).show();
+                        EditText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        EditText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        Toast.makeText(this,"hide",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                break;
+        }
+        return true;
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
@@ -231,6 +268,7 @@ public class SignupSecondActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
 
                 EditText_ID_TYpe_Menu.setText(menuItem.getTitle());
+                MTIL_idNumberLayout.setVisibility(View.VISIBLE);
                 MTIL_idNumberLayout.setHint(menuItem.getTitle());
                 return true;
             }

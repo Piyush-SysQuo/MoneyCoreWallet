@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.Statement.View.StatementSendViaMailActivity"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/_20sdp"
+    android:paddingEnd="@dimen/_20sdp">
+    <ImageView
+        android:id="@+id/Iv_Successful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:onClick="backPressed"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/close"/>
+    <ImageView
+        android:id="@+id/Iv_Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:layout_below="@+id/Iv_Successful"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:src="@drawable/ic_statement_success"/>
+
+    <TextView
+        android:id="@+id/Tv_Success_Msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Iv_Icon"
+        android:layout_centerInParent="true"
+        android:text="@string/sent_successfully"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_15sdp"
+        android:lineHeight="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/carmensans_medium"/>
+
+    <TextView
+        android:id="@+id/Tv_Transfer_SucesName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Tv_Success_Msg"
+        android:layout_centerInParent="true"
+        android:text="@string/details_statement_has_been_nsent_to_your_email_id"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="#1c1c1c"
+        android:textSize="@dimen/_11sdp"
+        android:lineHeight="@dimen/_19sdp"
+        android:fontFamily="@font/carmensans_regular"/>
+
+
+</RelativeLayout>

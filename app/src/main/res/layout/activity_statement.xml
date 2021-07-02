@@ -18,11 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:onClick="backPressed"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/back_white"
-            tools:ignore="OnClick" />
+            android:src="@drawable/back_white"/>
 
         <TextView
             android:id="@+id/Tv_Receipt_Head"
@@ -39,10 +38,9 @@
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:onClick="backPressed"
+            android:onClick="filterBottomDialog"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_stmt"
-            tools:ignore="OnClick" />
+            android:src="@drawable/ic_stmt" />
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/LLTH1"
@@ -120,7 +118,9 @@
         android:lineHeight="@dimen/_19sdp"
         android:lineSpacingExtra="0.26dp"
         android:fontFamily="@font/carmensans_medium"
-        android:layout_marginEnd="@dimen/_2sdp"/>
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:onClick="viewStatement"
+        android:textAllCaps="true"/>
     <TextView
         android:id="@+id/Tv_Statement_Request"
         android:layout_width="0dp"
@@ -134,6 +134,8 @@
         android:lineHeight="@dimen/_19sdp"
         android:lineSpacingExtra="0.26dp"
         android:fontFamily="@font/carmensans_medium"
-        android:layout_marginStart="@dimen/_2sdp"/>
+        android:layout_marginStart="@dimen/_2sdp"
+        android:onClick="statementRequestBottomDialog"
+        android:textAllCaps="true"/>
     </LinearLayout>
 </RelativeLayout>

@@ -19,7 +19,7 @@
         android:paddingBottom="@dimen/_20sdp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/MTIL_CashIn_Btm_Add_NameOnCard"
+            android:id="@+id/MTIL_StmtReqMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -28,7 +28,7 @@
             app:hintTextAppearance="@style/TextInputLayout_BtmDlgAddCard">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/EditText_CashIn_Btm_Add_NameOnCard"
+                android:id="@+id/EditText_StmtReqMail"
                 style="@style/TextInputEditText_BtmDlgAddCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/Tv_BTN_CashIn_AddCard"
+            android:id="@+id/BTN_StmtReqMail"
             style="@style/ButtonStyle_Login"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/_37sdp"

@@ -20,6 +20,7 @@ public class Constants {
     public static final String TOTAL_AMOUNT     = "TOTAL_AMOUNT";
     public static final String RECIVED_AMOUNT   = "RECEIVED_AMOUNT";
     public static final String SPENT_AMOUNT     = "SPENT_AMOUNT";
+    public static final String SUPPORT_PHONE     = "+337005954771";
 
 
      public static String BASE_URL = "";  //  staging

@@ -27,7 +27,6 @@ import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.CashIn.Adapter.AddBankAdapter;
 import com.mpay.wallet.View.Activity.CashIn.InterFace.BankInterFace;
 import com.mpay.wallet.View.Activity.CashIn.Model.BankItemList;
-import com.mpay.wallet.View.Activity.CashIn.View.CashInActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -183,7 +182,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
         Tv_BTN_CashIn_AddBank                   =   bottomSheetDialog.findViewById(R.id.Tv_BTN_CashIn_AddBank);
 
         try {
-            arrayAdapter_BankList = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_bank, arrayList_BankList);
+            arrayAdapter_BankList = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_singlechoice, arrayList_BankList);
             AutoComplete_CashIn_Btm_Add_BankName.setAdapter(arrayAdapter_BankList);
             AutoComplete_CashIn_Btm_Add_BankName.setThreshold(1);
         }catch ( Exception e){
