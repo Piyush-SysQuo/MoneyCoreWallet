@@ -153,7 +153,7 @@ public class StatementActivity extends AppCompatActivity {
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
-//    BOTTOM DIALOG
+//    BOTTOM DIALOG EMAIL
     public void statementRequestBottomDialog(View v){
 
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
@@ -220,9 +220,11 @@ public class StatementActivity extends AppCompatActivity {
         Tv_StatementFilterApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomSheetDialog.dismiss();
                 String ClickedItem =  names[ListViewFilterStatement.getCheckedItemPosition()];
-                CalendarBottomDialog();
+                if(ClickedItem.equals("Custom Date")) {
+                    bottomSheetDialog.dismiss();
+                    CalendarBottomDialog();
+                }
                 Toast.makeText(StatementActivity.this, ClickedItem, Toast.LENGTH_SHORT).show();
             }
         });
@@ -303,7 +305,7 @@ public class StatementActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
 
                 String msg = "Selected date Day: " + i2 + " Month : " + (i1 + 1) + " Year " + i;
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                 String Day = null;
                 String Month = null;
                 String Year = null;
@@ -337,7 +339,7 @@ public class StatementActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
 
                 String msg = "Selected date Day: " + i2 + " Month : " + (i1 + 1) + " Year " + i;
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                 String Day = null;
                 String Month = null;
                 String Year = null;

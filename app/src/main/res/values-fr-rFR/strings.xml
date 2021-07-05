@@ -206,6 +206,7 @@
     <string name="change_phone_number">Change Phone Number</string>
     <string name="enter_new_phone_number">Enter New Phone Number</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="account">Account</string>
 
 
     <string-array name="id_proof">

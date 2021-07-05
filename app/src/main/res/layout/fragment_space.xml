@@ -76,18 +76,24 @@
 
         </RelativeLayout>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recycler_Space"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/Layout_AddSpace"/>
     <LinearLayout
         android:id="@+id/Layout_AddSpace"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:background="@drawable/background_round"
         android:gravity="center"
@@ -106,4 +112,5 @@
             android:textColor="@color/button_color"
             android:textSize="@dimen/_11sdp" />
     </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_mask_group"/>
+    <!--android:background="@mipmap/chng_lang"-->
 <!--*********************************************************************************************-->
 <!--*********************************************************************************************-->
     <ScrollView

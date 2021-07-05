@@ -37,6 +37,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,6 +80,7 @@ public class SignupSecondActivity extends AppCompatActivity {
     private TextView TV_btm_dlg_Front_Sz_No;
     ImageView IV_btm_dlg_Front_Sz_Nm;
     EditText etfirst, etsecand, etthird, etfourth;
+    RelativeLayout Layout_btn_addPicID;
     AlertDialog alertDialog;
     private DialogInterface dialog;
     private String imageIndex="frontImage";
@@ -335,6 +337,7 @@ public class SignupSecondActivity extends AppCompatActivity {
         TextView Tv_Click_Add_ID            = bottomSheetDialog.findViewById(R.id.Tv_Click_Add_ID);
         TV_btm_dlg_Front_Sz_No              = bottomSheetDialog.findViewById(R.id.TV_btm_dlg_Front_Sz_No);
         IV_btm_dlg_Front_Sz_Nm              = bottomSheetDialog.findViewById(R.id.IV_btm_dlg_Front_Sz_Nm);
+        Layout_btn_addPicID                   = bottomSheetDialog.findViewById(R.id.Layout_btn_addPicID);
         ProgressImagesize                   = bottomSheetDialog.findViewById(R.id.ProgressImagesize);
 
         bottomSheetDialog.show();
@@ -531,6 +534,8 @@ public class SignupSecondActivity extends AppCompatActivity {
 //                        File file = getFile(selectedImage);
                         if (imageIndex.equals("frontImage"))
                         {
+                            Layout_btn_addPicID.setVisibility(View.VISIBLE);
+                            ProgressImagesize.setVisibility(View.VISIBLE);
                             frontImageFile = Utility.getFileWithName(this, selectedImage,"FrontImage.jpeg");
 
                             long fileSizeKB = frontImageFile.length()/1024;    // KB
@@ -589,6 +594,9 @@ public class SignupSecondActivity extends AppCompatActivity {
 //                            File file = getFile(bitmap);
                             if (imageIndex.equals("frontImage"))
                             {
+                                Layout_btn_addPicID.setVisibility(View.VISIBLE);
+                                ProgressImagesize.setVisibility(View.VISIBLE);
+
                                 frontImageFile = Utility.getFileWithName(this, bitmap,"FrontImage.jpeg");
 
                                 long fileSizeKB = frontImageFile.length()/1024;    // KB

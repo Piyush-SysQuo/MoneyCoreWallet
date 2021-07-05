@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,6 +28,7 @@ import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.CashIn.Adapter.AddBankAdapter;
 import com.mpay.wallet.View.Activity.CashIn.InterFace.BankInterFace;
 import com.mpay.wallet.View.Activity.CashIn.Model.BankItemList;
+import com.mpay.wallet.View.Activity.Home.HomeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,7 +45,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
     TextInputLayout MTIL_Withdraw_Amount, MTIL_Withdraw_Disbursement;
     TextInputEditText EditText_Withdraw_Amount, EditText_Withdraw_Disbursement;
     RecyclerView RecyclerView_WithdrawBank;
-    LinearLayout Layout_Add_New_Bank;
+    LinearLayout Layout_Withdraw_DisbursementAccount, Layout_Withdraw_DisbursementCash, Layout_Add_New_Bank;
     ArrayList<String> arrayList_DisbursementList = null;
 
     TextInputLayout MTIL_CashIn_Btm_Add_BankName, MTIL_CashIn_Btm_Add_UserIDBank, MTIL_CashIn_Btm_Add_PassPinBank;
@@ -56,6 +58,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
     private AddBankAdapter mAdapter_Bank;
     boolean resultBank = false;
     String BANK_NAME = null, BANK_NO = null;
+    String LayoutSelected = "ACCOUNT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,10 +83,14 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
 
         RecyclerView_WithdrawBank = findViewById(R.id.RecyclerView_WithdrawBank);
 
+        Layout_Withdraw_DisbursementAccount = findViewById(R.id.Layout_Withdraw_DisbursementAccount);
+        Layout_Withdraw_DisbursementCash = findViewById(R.id.Layout_Withdraw_DisbursementCash);
         Layout_Add_New_Bank = findViewById(R.id.Layout_Add_New_Bank);
         double TotAmt = Double.parseDouble(SharedPreferenceAmount.getInstance(WithdrawActivity.this).getString_TotAmount(Constants.TOTAL_AMOUNT).toString());
         Tv_Withdraw_Tot_Amt.setText("€"+formatter.format(TotAmt)+"");
 
+        RecyclerView_WithdrawBank.setVisibility(View.VISIBLE);
+        Layout_Add_New_Bank.setVisibility(View.VISIBLE);
 
         arrayList_DisbursementList = new ArrayList<>();
         arrayList_DisbursementList.add("Account");
@@ -248,7 +255,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
             resultBank = true;
         }
 
-        if(EditText_CashIn_Btm_Add_UserIDBank.getText().toString().isEmpty())
+        /*if(EditText_CashIn_Btm_Add_UserIDBank.getText().toString().isEmpty())
         {
             MTIL_CashIn_Btm_Add_UserIDBank.setError("Enter User ID");
             MTIL_CashIn_Btm_Add_UserIDBank.setErrorEnabled(true);
@@ -272,7 +279,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
         {
             MTIL_CashIn_Btm_Add_PassPinBank.setErrorEnabled(false);
             resultBank = true;
-        }
+        }*/
 
 
         if(resultBank == true)
@@ -342,7 +349,7 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
         if(!EditText_Withdraw_Amount.getText().toString().isEmpty()){
             MTIL_Withdraw_Amount.setErrorEnabled(false);
         }
-        if(EditText_Withdraw_Disbursement.getText().toString().isEmpty())
+        /*if(EditText_Withdraw_Disbursement.getText().toString().isEmpty())
         {
             MTIL_Withdraw_Disbursement.setErrorEnabled(true);
             MTIL_Withdraw_Disbursement.setError("select Disbursement");
@@ -359,6 +366,22 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
             in.putExtra("AMOUNT",AMOUNT);
             startActivity(in);
             finish();
+        }*/
+        if(LayoutSelected.equals("ACCOUNT"))
+        {
+            MTIL_Withdraw_Disbursement.setErrorEnabled(false);
+            String AMOUNT = EditText_Withdraw_Amount.getText().toString().replace("€", "");
+            Intent in = new Intent(this, ConfirmWithdrawActivity.class);
+            in.putExtra("BANK_NAME",BANK_NAME);
+            in.putExtra("BANK_NO",BANK_NO);
+            in.putExtra("AMOUNT",AMOUNT);
+            startActivity(in);
+            finish();
+        }
+        if(LayoutSelected.equals("CASH"))
+        {
+            Toast.makeText(this, "You select withdraw from cash", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 //------------------------------------------------------------------------------------------------\\
@@ -372,6 +395,37 @@ public class WithdrawActivity extends AppCompatActivity implements BankInterFace
     protected void onResume() {
         super.onResume();
     }
-//------------------------------------------------------------------------------------------------\\
+
+    public void clickToSelectAccWithdraw(View view) {
+        LayoutSelected = "ACCOUNT";
+
+        Layout_Withdraw_DisbursementAccount.setBackground(getResources().getDrawable(R.drawable.background_square_blue_light));
+        Layout_Withdraw_DisbursementCash.setBackground(getResources().getDrawable(R.drawable.background_square_gray));
+
+        RecyclerView_WithdrawBank.setVisibility(View.VISIBLE);
+        Layout_Add_New_Bank.setVisibility(View.VISIBLE);
+    }
+
+    public void clickToSelectCashWithdraw(View view) {
+        LayoutSelected = "CASH";
+
+        Layout_Withdraw_DisbursementCash.setBackground(getResources().getDrawable(R.drawable.background_square_blue_light));
+        Layout_Withdraw_DisbursementAccount.setBackground(getResources().getDrawable(R.drawable.background_square_gray));
+
+        RecyclerView_WithdrawBank.setVisibility(View.GONE);
+        Layout_Add_New_Bank.setVisibility(View.GONE);
+    }
+
+    public void backPressed(View view) {
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent in = new Intent(this, HomeActivity.class);
+        startActivity(in);
+        finish();
+    }
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
 }

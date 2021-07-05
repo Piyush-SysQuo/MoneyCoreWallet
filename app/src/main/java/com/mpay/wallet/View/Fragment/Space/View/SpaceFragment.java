@@ -124,6 +124,48 @@ public class SpaceFragment extends Fragment implements SpaceTransferInterFace {
         itemAdapter.setName("Space-3");
         itemAdapter.setAmount("€250.00");
         mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-4");
+        itemAdapter.setAmount("€300.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-5");
+        itemAdapter.setAmount("€250.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-6");
+        itemAdapter.setAmount("€300.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-7");
+        itemAdapter.setAmount("€250.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-8");
+        itemAdapter.setAmount("€250.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-9");
+        itemAdapter.setAmount("€300.00");
+        mList.add(itemAdapter);
+
+
+        itemAdapter = new SpaceItemAdapter();
+        itemAdapter.setName("Space-10");
+        itemAdapter.setAmount("€250.00");
+        mList.add(itemAdapter);
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//

@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
@@ -91,7 +92,7 @@ public class CashInActivity extends AppCompatActivity implements View.OnClickLis
     private List<BankItemList> mList_Bank = new ArrayList<>();
     private AddBankAdapter mAdapter_Bank;
     boolean resultBank = false;
-    String NextActivity = null, BANK_NAME = null, BANK_NO = null;
+    String NextActivity = "CARD", BANK_NAME = null, BANK_NO = null;
     NumberFormat formatter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,7 +187,11 @@ public class CashInActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(in);
                 finish();
             }
-
+            else
+            {
+                Toast.makeText(this, "For now Please select Bank", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
     }

@@ -182,41 +182,6 @@ public class SignupActivity extends AppCompatActivity  implements DatePickerDial
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
-    public void DateSet(){
-        /*Calendar c = Calendar.getInstance();
-        int Year = c.get(Calendar.YEAR);
-        int Month = c.get(Calendar.MONTH);
-        int Day = c.get(Calendar.DAY_OF_MONTH);
-
-        datePicker = new DatePickerDialog(this, R.style.MyDatePickerStyle, new DatePickerDialog.OnDateSetListener(){
-
-            @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                EditText_DOB.setText(String.format("%d / %D / %d", i, i1 + 1, i2));
-            }
-        }, Year, Month, Day);*/
-
-
-        DatePickerDialog mDate =  new DatePickerDialog(this, R.style.MyDatePickerStyle, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                // TODO Auto-generated method stub
-                Calendar_DOB = Calendar.getInstance();
-                Calendar_DOB.set(Calendar.YEAR, year);
-                Calendar_DOB.set(Calendar.MONTH, monthOfYear);
-                Calendar_DOB.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                //                minDate = Calendar_Pay.getTime().getTime();
-                String myFormat = "dd-MM-YYYY"; //In which you need put here
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-                String DOB_DATE               =   sdf.format(Calendar_DOB.getTime());
-                String currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(Calendar_DOB.getTime());
-                EditText_DOB.setText(DOB_DATE);
-            }
-        }, Calendar_DOB.get(Calendar.YEAR), Calendar_DOB.get(Calendar.MONTH), Calendar_DOB.get(Calendar.DAY_OF_MONTH));
-        mDate.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-        mDate.show();
-
-    }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void backPressed(View view) {

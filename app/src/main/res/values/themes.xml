@@ -1434,6 +1434,7 @@
         <item name="lineSpacing">0.12dp</item>
         <item name="android:fontFamily">@font/carmensans_regular</item>
     </style>
+    <!--TODO CALENDAR-->
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
         <item name="colorAccent">@color/button_color</item>
         <item name="colorPrimary">@color/white</item>
@@ -1627,15 +1628,15 @@
         <!-- arrow bordercolor(<>)-->
         <item name="android:selectableItemBackgroundBorderless">@color/white</item>
         <!-- Highlight item color-->
-        <item name="colorControlHighlight">#bdd7f8</item>
+        <item name="colorControlHighlight">#fff</item>
         <!--Calender Background color -->
         <item name="android:windowBackground">@color/white</item>
         <!-- Ok Cancel Color-->
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <!-- Week TextColor-->
-        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/gray19</item>
         <!-- Calender Number color arrow color (< >) -->
-        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/gray19</item>
         <!--day , month-->
         <item name="android:textColorPrimaryInverse">#bdd7f8</item>
         <!-- year-->
