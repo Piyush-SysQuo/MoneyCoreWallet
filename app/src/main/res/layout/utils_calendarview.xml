@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/_20sdp"
+    android:background="@color/white">
+    <CalendarView
+        android:id="@+id/CalendarViewUtilDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyDatePickerStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/Tv_AcceptUtilDate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_41sdp"
+        android:background="@drawable/button_background"
+        android:text="@string/ok"
+        android:gravity="center"
+        style="@style/ButtonStyle_Login"
+        android:onClick="statementRequestBottomDialog"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textAllCaps="true"/>
+</LinearLayout>

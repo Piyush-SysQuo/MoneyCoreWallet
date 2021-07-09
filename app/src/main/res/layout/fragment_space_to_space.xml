@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+<!--*********************************************************************************************-->
+<RelativeLayout
+    android:id="@+id/Relative_Header"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:id="@+id/Iv_SpaceToSpace_Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/back_white" />
+
+    <TextView
+        android:id="@+id/Tv_SpaceToWallet_Head"
+        style="@style/Text_Login_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/transfer_to_space" />
+</RelativeLayout>
+<!--*********************************************************************************************-->
+<LinearLayout
+    android:id="@+id/LLTH1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_20sdp">
+
+        <LinearLayout
+            android:id="@+id/LL_SpaceToWallet1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Tv_SpaceToSpace_Tot_Amt"
+                style="@style/Text_transfr_Bal_Amt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="€470.00" />
+
+            <TextView
+                android:id="@+id/Tv_SpaceToSpace_AmtHead"
+                style="@style/Text_transfr_Bal_AmtHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:text="@string/available_balance" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
+<!--*********************************************************************************************-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_10sdp">
+<!--*********************************************************************************************-->
+<!--******************************** TODO SPACE NAME  **********************************************-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Text_SpaceToSpace"
+        android:text="@string/select_space"
+        android:layout_gravity="center|start"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_25sdp"/>
+    <Spinner
+        android:id="@+id/Spinner_SpaceToSpaceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:dropDownVerticalOffset="0dp"
+        android:gravity="start"
+        android:spinnerMode="dropdown"
+        style="@style/Spinner_SpaceToSpace"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:entries="@array/space_name"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:dropDownSelector="@drawable/ic_arrow_drop_down_black_24dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dialog_head"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_3sdp"/>
+<!--*********************************************************************************************-->
+<!--******************************** TODO AMOUNT  ***********************************************-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/MTIL_SpaceToSpaceAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/amount"
+        app:hintTextAppearance="@style/TextInputLayout_SpaceToSpace"
+        app:prefixText="€"
+        app:prefixTextAppearance="@style/TextInputEditText_Space"
+        app:prefixTextColor="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditText_SpaceToSpaceAmount"
+            style="@style/TextInputEditText_SpaceToSpace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+    <Switch
+        android:id="@+id/SwitchBtn_SpaceToSpaceRefill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:checked="false"
+        android:gravity="center"
+        android:switchPadding="@dimen/_5sdp"
+        android:text="@string/auto_refill"
+        android:thumb="@drawable/custom_thumb"
+        android:track="@drawable/custom_track"
+        style="@style/Switch_SpaceToSpace"/>
+<!--*********************************************************************************************-->
+    <LinearLayout
+        android:id="@+id/LL_SpaceToSpace3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/Text_SpaceToSpaceAll"
+            android:text="@string/day" />
+
+        <LinearLayout
+            android:id="@+id/LL_SpaceToSpaceRefillDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/background_light_boarder_dark_blue"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/Tv_CashInRefillDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/LayoutText_SpaceToSpaceAll"
+                android:gravity="center"
+                android:text="20"
+                android:textAllCaps="true"/>
+
+            <ImageView
+                android:id="@+id/Iv_CashInRefillDay"
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:background="@drawable/ic_dropdown"
+                android:backgroundTint="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/Text_SpaceToSpaceAll"
+            android:text="@string/of_every_month" />
+    </LinearLayout>
+<!--*********************************************************************************************-->
+    <LinearLayout
+        android:id="@+id/LL_CashIn5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            style="@style/Text_SpaceToSpaceAll"
+            android:text="@string/when_my_balance_is_under" />
+
+        <LinearLayout
+            android:id="@+id/LL_CashInRefillAmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/background_light_boarder_dark_blue"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/Tv_SpaceToSpaceRefillAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/LayoutText_SpaceToSpaceAll"
+                android:gravity="center"
+                android:text="€100.00"
+                android:textAllCaps="true"/>
+
+            <ImageView
+                android:id="@+id/Iv_CashInRefillAmt"
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:background="@drawable/ic_dropdown"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+<!--*********************************************************************************************-->
+    <TextView
+        android:id="@+id/Tv_SpaceToSpaceTransfer"
+        style="@style/ButtonStyle_Login"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/transfer"
+        android:onClick="continueAction"/>
+<!--*********************************************************************************************-->
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_CreateSpace_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white" />
+
+        <TextView
+            android:id="@+id/Tv_CreateSpace_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/create_space_Head" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/LLTH1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Relative_Header"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp">
+
+            <LinearLayout
+                android:id="@+id/LL_CreateSpace1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Tv_CreateSpace_Tot_Amt"
+                    style="@style/Text_transfr_Bal_Amt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="€470.00" />
+
+                <TextView
+                    android:id="@+id/Tv_CreateSpace_AmtHead"
+                    style="@style/Text_transfr_Bal_AmtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:text="@string/available_balance" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <!--*********************************************************************************************-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+<!--*********************************************************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_CreateSpaceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name_your_space"
+                app:hintTextAppearance="@style/TextInputLayout_Space">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_CreateSpaceName"
+                    style="@style/TextInputEditText_Space"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_CreateSpaceAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/traget_amount"
+                app:hintTextAppearance="@style/TextInputLayout_Space"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:prefixText="€"
+                app:prefixTextAppearance="@style/TextInputEditText_Space"
+                app:prefixTextColor="@color/colorPrimaryDark">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_CreateSpaceAmount"
+                    style="@style/TextInputEditText_Space"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+<!--*********************************************************************************************-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_CreateSpaceDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/traget_date"
+                app:hintTextAppearance="@style/TextInputLayout_Space"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:endIconDrawable="@drawable/ic_check"
+                app:endIconMode="custom"
+                app:endIconTint="#589aec"
+                app:endIconCheckable="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_CreateSpaceDate"
+                    style="@style/TextInputEditText_Space"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:focusable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+<!--*********************************************************************************************-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_30sdp">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Check_CreateSpaceCondition"
+                    android:layout_gravity="center|start"
+                    style="@style/TextTerms_SignUp"
+                    android:text="@string/i_have_read_and_accept_terms_and_conditions" />
+            </LinearLayout>
+<!--*********************************************************************************************-->
+            <TextView
+                android:id="@+id/Tv_BtnCreateSpace"
+                android:layout_width="match_parent"
+                style="@style/ButtonStyle_Login"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/create"/>
+<!--*********************************************************************************************-->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

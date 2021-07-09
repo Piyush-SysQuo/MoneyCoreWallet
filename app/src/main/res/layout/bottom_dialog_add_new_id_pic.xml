@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MTIL_BtmAddNewIDType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+            android:hint="@string/id_type"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:endIconMode="custom"
+            app:endIconTint="#7b8ea4"
+            app:endIconDrawable="@drawable/ic_dropdown"
+            app:endIconCheckable="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditText_BtmAddNewIDType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:clickable="false"
+                android:editable="false"
+                style="@style/TextView_11_Medium_White"
+                android:textColor="@color/colorPrimaryDark"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MTIL_BtmAddNewIDNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+            android:hint="@string/passportno"
+            android:layout_marginTop="@dimen/_10sdp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditText_BtmAddNewIDNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                style="@style/TextView_11_Medium_White"
+                android:textColor="@color/colorPrimaryDark"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text_BottomDialog_F_B"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center|left"
+                android:text="@string/front"
+                tools:ignore="RtlHardcoded" />
+
+            <LinearLayout
+                android:id="@+id/Linear_BtmAddNewIDFront"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/boarder_doted"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/TextView_BtmAddNewIDFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextID_Upload"
+                    android:gravity="center"
+                    android:text="@string/upload_front" />
+
+                <ImageView
+                    android:id="@+id/IV_BtmAddNewIDFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/cloud_computing" />
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/Layout_btn_addNewPicID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/IV_BtmAddNewID_Sz_Nm"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_image"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/TV_BtmAddNewID_Sz_NM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text_BottomDialog_Pass"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_toRightOf="@+id/IV_BtmAddNewID_Sz_Nm"
+                    android:text="Passport-Front"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TV_BtmAddNewID_Sz_No"
+                    style="@style/Text_BottomDialog_Pass_MB"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/ProgressImagesizeBtmAddNewID"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:theme="@style/ProgressBarStyle"
+                android:visibility="gone"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text_BottomDialog_F_B"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/back" />
+
+            <LinearLayout
+                android:id="@+id/Linear_BtmAddNewIDBack"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/boarder_doted"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/TextView_BtmAddNewIDBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextID_Upload"
+                    android:gravity="center"
+                    android:text="@string/upload_back" />
+
+                <ImageView
+                    android:id="@+id/IV_BtmAddNewIDBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/cloud_computing" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                style="@style/ButtonStyle_Login"
+                android:background="@drawable/button_background"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:gravity="center"
+                android:id="@+id/Tv_Click_BtmAddNewID"
+                android:text="@string/ok"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

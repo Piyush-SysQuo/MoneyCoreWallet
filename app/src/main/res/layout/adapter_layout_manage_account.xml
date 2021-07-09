@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/MainLayout_Adpt_ManageAccount">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/Iv_Adpt_AddBank"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/visa"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/Tv_Adpt_ManagAccBankName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2.5"
+            android:fontFamily="@font/carmensans_medium"
+            android:gravity="center|start"
+            android:lineHeight="@dimen/_21sdp"
+            android:lineSpacingExtra="0.08dp"
+            android:text="Bank of America"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/Tv_Adpt_ManagAccBankNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:fontFamily="@font/carmensans_medium"
+            android:gravity="center|start"
+            android:lineHeight="@dimen/_21sdp"
+            android:lineSpacingExtra="0.08dp"
+            android:text="**** 2893"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_9sdp" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_9sdp">
+
+            <ImageView
+                android:id="@+id/Iv_Adpt_ManagAcc_Delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_5sdp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:visibility="gone"/>
+</LinearLayout>

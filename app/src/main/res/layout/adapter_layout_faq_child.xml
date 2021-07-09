@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:background="#f4f7fc">
+
+    <RelativeLayout
+        android:id="@+id/RL_Adap_FAQ_Child_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/TV_Adap_FAQ_Child_MSG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/carmensans_regular"
+            android:lineHeight="@dimen/_26sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. took a galley of type and scrambled it to make a type specimen book. desktop including versions of Lorem Ipsum."
+            android:textAllCaps="true"
+            android:textColor="#465a71"
+            android:textSize="@dimen/_10sdp" />
+    </RelativeLayout>
+
+</LinearLayout>

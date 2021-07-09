@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Activity.MyProfile.MyProfileActivity">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_Profile_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white" />
+
+        <TextView
+            android:id="@+id/Tv_Profile_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/my_profile" />
+
+        <ImageView
+            android:id="@+id/Iv_Profile_Edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:onClick="clickEditProfile"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_edit" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_marginBottom="@dimen/_30sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CircleImage_UserPic"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:src="@drawable/man_1" />
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/_minus25sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:src="@drawable/ic_cameras"
+                    android:onClick="clickToChangePic"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Tv_Profile_UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/carmensans_regular"
+                android:gravity="center"
+                android:lineHeight="@dimen/_27sdp"
+                android:lineSpacingExtra="0.14dp"
+                android:text="David Dorvik"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_11sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_Mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text_Profile_Head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="@string/email" />
+
+                    <TextView
+                        android:id="@+id/Tv_Profile_Mail"
+                        style="@style/Text_Profile_Item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:gravity="center|start"
+                        android:text="daviddorvik@gmail.com" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Tv_Profile_Mail_Change"
+                    style="@style/Text_Profile_Link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="0.50"
+                    android:gravity="center|start"
+                    android:text="@string/change"
+                    android:onClick="clickToChangeMailID"/>
+            </LinearLayout>     <!--MAIL-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text_Profile_Head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="@string/phoneNo" />
+
+                    <TextView
+                        android:id="@+id/Tv_Profile_Phone"
+                        style="@style/Text_Profile_Item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:gravity="center|start"
+                        android:text="+33-700-595-4771" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Tv_Profile_Phone_Change"
+                    style="@style/Text_Profile_Link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="0.50"
+                    android:gravity="center|start"
+                    android:text="@string/change"
+                    android:onClick="clickToChangePhoneNo" />
+            </LinearLayout>     <!--PHONE-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_Gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <TextView
+                    style="@style/Text_Profile_Head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:gravity="center|start"
+                    android:text="@string/gender" />
+
+                <TextView
+                    android:id="@+id/Tv_Profile_Gender"
+                    style="@style/Text_Profile_Item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Male" />
+            </LinearLayout>     <!--GENDER-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_DOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <TextView
+                    style="@style/Text_Profile_Head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:gravity="center|start"
+                    android:text="@string/date_of_birth" />
+
+                <TextView
+                    android:id="@+id/Tv_Profile_DOB"
+                    style="@style/Text_Profile_Item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Male" />
+            </LinearLayout>     <!--DATE OF BIRTH-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_IDNO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/Tv_Profile_IDNOHead"
+                    style="@style/Text_Profile_Head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:gravity="center|start"
+                    android:text="@string/legal_id" />
+
+                <TextView
+                    android:id="@+id/Tv_Profile_IDNO"
+                    style="@style/Text_Profile_Item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="78TH67845" />
+            </LinearLayout>     <!--LEGAL ID NO-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_IDPic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/Tv_Profile_IDPicHead"
+                    style="@style/Text_Profile_Head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center|start"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:text="@string/passport" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2">
+
+                    <ImageView
+                        android:id="@+id/Iv_Profile_IDPic1"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/man_2" />
+
+                    <ImageView
+                        android:id="@+id/Iv_Profile_IDPic2"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toEndOf="@+id/Iv_Profile_IDPic1"
+                        android:src="@drawable/man_3" />
+                </RelativeLayout>
+            </LinearLayout>     <!--LEGAL ID PIC-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_AddNewID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/background_round"
+                android:gravity="center|start"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:weightSum="2"
+                android:onClick="clickToAddNewID">
+
+                <TextView
+                    android:id="@+id/Tv_CashInAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:fontFamily="@font/carmensans_medium"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/add_new_id"
+                    android:textColor="@color/button_color"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>     <!-- ADD NEW ID-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/Tv_Profile_AddressHead"
+                    style="@style/Text_Profile_Head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:gravity="center|start"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/Tv_Profile_Address"
+                    style="@style/Text_Profile_Address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="52 Rue des fleurs\nBP 90432 Libourne 33500 France" />
+            </LinearLayout>     <!--ADDRESS-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Profile_AddNewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/background_round"
+                android:gravity="center|start"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:weightSum="2"
+                android:onClick="clickToAddNewAdress">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:fontFamily="@font/carmensans_medium"
+                    android:lineHeight="@dimen/_21sdp"
+                    android:lineSpacingExtra="0.08dp"
+                    android:text="@string/add_new_address"
+                    android:textColor="@color/button_color"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>     <!-- ADD NEW ADDRESS-->
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

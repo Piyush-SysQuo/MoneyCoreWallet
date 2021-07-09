@@ -1,0 +1,270 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Activity.Support.SupportActivity">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_Support_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white" />
+
+        <TextView
+            android:id="@+id/Tv_Support_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/support" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:src="@drawable/ic_support_man"
+                android:layout_marginTop="@dimen/_20sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:text="@string/need_help"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_12sdp"
+                android:lineHeight="@dimen/_16sdp"
+                android:fontFamily="@font/carmensans_medium"
+                android:layout_marginTop="@dimen/_10sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:text="@string/feel_free_to_drop_a_line_or_call_us"
+                android:textColor="#5f7287"
+                android:textSize="@dimen/_9sdp"
+                android:lineHeight="@dimen/_19sdp"
+                android:fontFamily="@font/carmensans_regular"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+            <LinearLayout
+                android:id="@+id/Layout_Support_CallUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:onClick="callUsForSupport">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:src="@drawable/ic_callus"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="@string/call_us"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_11sdp"
+                        android:lineHeight="@dimen/_16sdp"
+                        android:fontFamily="@font/carmensans_medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="+33-700-595-4771"
+                        android:textColor="#667587"
+                        android:textSize="@dimen/_11sdp"
+                        android:lineHeight="@dimen/_16sdp"
+                        android:fontFamily="@font/carmensans_regular"/>
+                </LinearLayout>
+            </LinearLayout>         <!--CALL US-->
+
+            <LinearLayout
+                android:id="@+id/Layout_Support_MailUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:onClick="mailUsForSupport">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:src="@drawable/ic_mailus"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="@string/mail_us"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_11sdp"
+                        android:lineHeight="@dimen/_16sdp"
+                        android:fontFamily="@font/carmensans_medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:text="support@moneycorepay.com"
+                        android:textColor="#667587"
+                        android:textSize="@dimen/_11sdp"
+                        android:lineHeight="@dimen/_16sdp"
+                        android:fontFamily="@font/carmensans_regular"/>
+                </LinearLayout>
+            </LinearLayout>         <!--MAIUL US-->
+        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_3sdp"
+                android:background="#f6f6f6"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:gravity="center|start"
+                android:text="@string/submit_a_query"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_12sdp"
+                android:lineHeight="@dimen/_16sdp"
+                android:fontFamily="@font/carmensans_medium"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_Support_QueryType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextInputLayout_Support"
+                android:hint="@string/query_type"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:endIconMode="custom"
+                app:endIconTint="#7b8ea4"
+                app:endIconDrawable="@drawable/ic_dropdown"
+                app:endIconCheckable="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_Support_QueryType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:clickable="false"
+                    android:focusable="false"
+                    style="@style/TextInputEdittext_Support"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_Support_Subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MTIL_CashIn_Btm_Add_BankName"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="@string/subject"
+                app:hintTextAppearance="@style/TextInputLayout_Support">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_Support_Subject"
+                    style="@style/TextInputEdittext_Support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MTIL_Support_Message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="@string/message"
+                app:hintTextAppearance="@style/TextInputLayout_Support">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText_Support_Message"
+                    style="@style/TextInputEdittext_Support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/dialog_head"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/Tv_BTN_Support"
+                style="@style/ButtonStyle_Login"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/submit"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

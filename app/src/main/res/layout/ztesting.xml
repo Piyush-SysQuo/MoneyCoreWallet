@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/Layout_ChangeSecurityCodeOld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:fontFamily="@font/carmensans_regular"
+            android:gravity="center"
+            android:lineHeight="@dimen/_24sdp"
+            android:lineSpacingExtra="0.17dp"
+            android:text="@string/enter_old_security_code"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_17sdp" />
+
+        <com.alimuzaffar.lib.pin.PinEntryEditText
+            android:id="@+id/PinEntryEditText_OLD"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textColor="@android:color/transparent"
+            android:textIsSelectable="false"
+            android:focusable="true"
+            android:textSize="0px"
+            app:pinBackgroundDrawable="@drawable/bg_pin_round"
+            app:pinBackgroundIsSquare="true"
+            app:pinCharacterSpacing="20dp"
+            app:pinTextBottomPadding="4dp" />
+    </LinearLayout>     <!--OLD-->
+
+    <MyKeyboard
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

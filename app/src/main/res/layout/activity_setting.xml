@@ -1,0 +1,272 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Activity.Setting.SettingActivity">
+
+    <RelativeLayout
+        android:id="@+id/Relative_Header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/Iv_Setting_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:onClick="backPressed"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_white" />
+
+        <TextView
+            android:id="@+id/Tv_Setting_Head"
+            style="@style/Text_Login_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/setting" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:onClick="notificationOnOff">
+
+        <ImageView
+            android:id="@+id/Iv_SettingNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_notification_dark" />
+        <TextView
+            android:id="@+id/Tv_SettingNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingNotification"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/notifications"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+        <Switch
+            android:id="@+id/Switch_SettingNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:thumb="@drawable/custom_thumb"
+            android:track="@drawable/custom_track" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:onClick="biometricOnOff">
+
+        <ImageView
+            android:id="@+id/Iv_SettingBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_bio_icon" />
+        <TextView
+            android:id="@+id/Tv_SettingBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingBio"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/biometric"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+        <Switch
+            android:id="@+id/Switch_SettingBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:thumb="@drawable/custom_thumb"
+            android:track="@drawable/custom_track" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:onClick="aboutUs">
+        <ImageView
+            android:id="@+id/Iv_SettingAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_about_us"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/Tv_SettingAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingAbout"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/about_us"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:onClick="faqActivityCall">
+        <ImageView
+            android:id="@+id/Iv_SettingFAQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_faq"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/Tv_SettingFAQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingFAQ"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/faq"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:onClick="changeLanguage">
+        <ImageView
+            android:id="@+id/Iv_SettingLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_translate"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/Tv_SettingLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingLanguage"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/change_language"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray17"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/Layout_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp">
+        <ImageView
+            android:id="@+id/Iv_SettingVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_app_version"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/Tv_SettingVersionHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/Iv_SettingVersion"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/app_version"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+        <TextView
+            android:id="@+id/Tv_SettingVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="1.2.35"
+            android:textSize="@dimen/_10sdp"
+            android:lineHeight="@dimen/_45sdp"
+            android:lineSpacingExtra="0.13dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/carmensans_medium"/>
+    </RelativeLayout>
+
+</LinearLayout>

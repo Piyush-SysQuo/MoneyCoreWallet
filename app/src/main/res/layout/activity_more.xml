@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".View.Activity.More.MoreActivity">
+
+    <LinearLayout
+        android:id="@+id/Linear_More_LL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_30sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Iv_MoreUserPic"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:src="@drawable/man_1" />
+
+        <LinearLayout
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/userImg"
+            android:gravity="center|start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Tv_MoreUserName"
+                style="@style/TextMore_UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="David Dorvik" />
+
+            <TextView
+                android:id="@+id/TextView_MoreUserMail"
+                style="@style/TextMore_UserMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="davddorvik@gmail.com" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:background="#f6f6f6" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:id="@+id/Linear_More_Profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickProfile">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_user" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/my_profile" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_MyQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickMyQRCode">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_qr_code" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/my_qr_code" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_ChangeSecurityCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickChangeSecurityCode">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_exchange" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/change_security_code" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/Relative_More_LockUnlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickLockUnlock">
+
+                <ImageView
+                    android:id="@+id/IvMoreLock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_lock"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/IvMoreLock"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:text="@string/lock_unlock" />
+                <Switch
+                    android:id="@+id/SwitchBtn_MoreLockUnLock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:thumb="@drawable/custom_thumb"
+                    android:track="@drawable/custom_track" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_ManageAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickManageAccount">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_credit_card" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/manage_account" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_Support"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickSupport">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_support" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/support" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_Seting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickSetting">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_setting_lines" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/setting" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Linear_More_Logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_20sdp"
+                android:onClick="onClickLogOut">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logout" />
+
+                <TextView
+                    style="@style/TextMore_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:gravity="center"
+                    android:text="@string/logout" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
