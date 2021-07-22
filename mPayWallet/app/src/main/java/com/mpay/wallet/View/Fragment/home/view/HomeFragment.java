@@ -40,6 +40,8 @@ import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.DBHelper;
 import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.CashIn.View.CashInActivity;
+import com.mpay.wallet.View.Activity.More.MoreActivity;
+import com.mpay.wallet.View.Activity.MyQRCodeActivity;
 import com.mpay.wallet.View.Activity.Statement.View.StatementActivity;
 import com.mpay.wallet.View.Activity.Withdraw.WithdrawActivity;
 import com.mpay.wallet.View.Fragment.MyQRCode.MyQRCodeFragment;
@@ -47,6 +49,7 @@ import com.mpay.wallet.View.Fragment.Notification.View.NotificationFragment;
 import com.mpay.wallet.View.Fragment.Scan_QR.ScanQRFragment;
 import com.mpay.wallet.View.Fragment.Transaction_History.View.TransactionHistoryFragment;
 import com.mpay.wallet.View.Fragment.Transfer.TransferFragment;
+import com.mpay.wallet.View.Fragment.TransferFromSpace.SpaceToSpaceFragment;
 import com.mpay.wallet.View.Fragment.home.adapter.RecentTransactionAdapter;
 import com.mpay.wallet.View.Fragment.home.model.ItemAdapter;
 
@@ -107,16 +110,19 @@ public class HomeFragment extends Fragment {
         IV_Home_Notification    = view.findViewById(R.id.IV_Home_Notification);
         Tv_Home_Name    = view.findViewById(R.id.Tv_Home_Name);
 
-        if(SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("daviddorvik@gmail.com"))
-        {
-            Tv_Home_Name.setText("Hey Good Morning\nDavid");
-        }
-        else if(SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("william@gmail.com"))
-        {
-            Tv_Home_Name.setText("Hey Good Morning\nWilliam");
+        try {
+            if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("daviddorvik@gmail.com")) {
+                Tv_Home_Name.setText("Hey Good Morning\nDavid");
+            } else if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("william@gmail.com")) {
+                Tv_Home_Name.setText("Hey Good Morning\nWilliam");
 
-        }
+            } else if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("jayagupta2905@gmail.com")) {
+                Tv_Home_Name.setText("Hey Good Morning\nJaya");
 
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         lnn = view.findViewById(R.id.lnn);
 
         View layout= view.findViewById(R.id.layout);
@@ -223,7 +229,11 @@ public class HomeFragment extends Fragment {
         IV_Home_QRCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new MyQRCodeFragment()).addToBackStack("Home").commit();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new MyQRCodeFragment()).addToBackStack("Home").commit();
+                Intent in = new Intent(getActivity(), MyQRCodeActivity.class);
+                in.putExtra("ACTIVITY_CLASS", "HOME");
+                startActivity(in);
+                getActivity().finish();
             }
         });
 
@@ -419,8 +429,14 @@ public class HomeFragment extends Fragment {
         Layout_trnsfr_Btm_Dlg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Transfer to Space", Toast.LENGTH_LONG).show();
-//                bottomSheetDialog.dismiss();
+                SpaceToSpaceFragment fragment = new SpaceToSpaceFragment();
+                Bundle args = new Bundle();
+                args.putString("AMOUNT", "100");
+                args.putString("SPACE_NAME", "Space-1");
+                args.putString("POSITION", "1");
+                fragment.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, fragment).addToBackStack("Space").commit();
             }
         });
     }

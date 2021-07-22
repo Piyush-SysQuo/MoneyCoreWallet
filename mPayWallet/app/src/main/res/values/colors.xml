@@ -104,6 +104,9 @@
     <color name="gray16">#b0b9c4</color>
     <color name="gray17">#acacac</color>
     <color name="gray18">#949aa2</color>
+    <color name="gray19">#312c2c</color>
+    <color name="gray20">#7b8492</color>
     <color name="blue1">#f2f7fc</color>
     <color name="blue2">#0a3e7b</color>
+    <color name="blue3">#d5dfeb</color>
 </resources>

@@ -78,6 +78,11 @@ public class SharedPreferenceAmount {
         editor.putString(key, value);
         editor.commit();
     }
+    public void setString_Language(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
 
     /**
      * Get string value from preference
@@ -105,6 +110,9 @@ public class SharedPreferenceAmount {
         return fSharedPreferences.getString(key, null);
     }
     public String getString_Mail(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_Language(String key) {
         return fSharedPreferences.getString(key, null);
     }
 

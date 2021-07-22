@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mpay.wallet">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
@@ -11,7 +12,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission
@@ -36,12 +36,27 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         android:vmSafeMode="true"
         android:windowSoftInputMode="adjustNothing">
-        <activity android:name=".View.Activity.Statement.View.StatementActivity"></activity>
-        <activity android:name=".View.Activity.Withdraw.ConfirmWithdrawActivity" />
+
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <activity
-            android:name=".View.Activity.Withdraw.WithdrawActivity"
+            android:name=".View.Activity.ForgotPassword.NewPasswordActivity"
+            android:label="@string/title_activity_new_password"/>
+        <activity
+            android:name=".View.Activity.ForgotPassword.VerificationActivity"
+            android:label="@string/title_activity_verification" />
+        <activity
+            android:name=".View.Activity.MainKeyBoardActivity"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,20 +64,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activity.Cash_Withdraw_ReceiptActivity" />
-        <activity android:name=".View.Activity.CashIn.View.ConfirmCashinActivity" />
-        <activity
-            android:name=".View.Activity.CashIn.View.CashInActivity"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".View.Activity.Transfer_Receipt.TransferReceiptActivity" />
-        <activity android:name=".View.Activity.SuccessfulTransfer.SuccessfulTransferActivity" />
+        <activity android:name=".View.Activity.Statement.View.StatementSendViaMailActivity" />
         <activity
             android:name=".View.Activity.Splash.SplashActivity"
             android:screenOrientation="locked">
@@ -73,14 +75,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.Welcome.WelcomeActivityThird"
-            android:screenOrientation="locked" />
-        <activity
-            android:name=".View.Activity.Welcome.WelcomeActivitySecond"
-            android:screenOrientation="locked" />
+            android:name=".View.Activity.ChangeLanguage.ChangeLanguageActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".View.Activity.Welcome.WelcomeActivityFirst"
-            android:screenOrientation="locked" />
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Welcome.WelcomeActivitySecond"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Welcome.WelcomeActivityThird"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".View.Activity.Login.LoginActivity"
             android:screenOrientation="locked">
@@ -91,11 +120,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.Signup.SignupActivity"
-            android:screenOrientation="locked" />
-        <activity
             android:name=".View.Activity.BioMetric.BiometricActivity"
-            android:screenOrientation="locked" />
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.ForgotPassword.ForgotPasswordActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".View.Activity.Signup.SignupSecondActivity"
             android:screenOrientation="locked">
@@ -115,11 +156,196 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.ForgotPassword.ForgotPasswordActivity"
-            android:screenOrientation="locked" />
+            android:name=".View.Activity.Withdraw.WithdrawActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".View.Activity.ChangeLanguage.ChangeLanguageActivity"
-            android:screenOrientation="locked" />
+            android:name=".View.Activity.Withdraw.ConfirmWithdrawActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.CashIn.View.CashInActivity"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.CashIn.View.ConfirmCashinActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Cash_Withdraw_ReceiptActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.SuccessfulTransfer.SuccessfulTransferActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Transfer_Receipt.TransferReceiptActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Statement.View.StatementActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.More.MoreActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.MyQRCodeActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.SecurityPinChange.SecurityPinChangeActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.EditProfile.EditProfileActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.ChangeEmailID.ChangeEmailIDActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.ChangePhoneNo.ChangePhoneNoActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.MyProfile.MyProfileActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.FAQ.FAQActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.AboutUs.AboutUsActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Setting.SettingActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.Support.SupportActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.ManageAccount.ManageAccountActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activity.SecurityPinChange.SecuriCodeChangeSuccessActivity"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.Activity.Signup.SignupActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

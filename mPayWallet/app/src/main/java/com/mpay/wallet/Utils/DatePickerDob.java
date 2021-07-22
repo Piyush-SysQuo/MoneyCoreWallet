@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import android.widget.RelativeLayout.LayoutParams;
 
+import com.mpay.wallet.R;
+
 import java.util.Calendar;
 
 
@@ -28,6 +30,7 @@ public class DatePickerDob extends DialogFragment {
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),android.R.style.Theme_Holo_Light_Dialog,(DatePickerDialog.OnDateSetListener)getActivity(),year,month,day);
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), R.style.MyDatePickerStyle2,(DatePickerDialog.OnDateSetListener)getActivity(),year,month,day);
 
         // Create a TextView programmatically.
         TextView tv = new TextView(getActivity());
@@ -46,7 +49,7 @@ public class DatePickerDob extends DialogFragment {
         tv.setBackgroundColor(Color.parseColor("#003b7d"));
 
         // Set the newly created TextView as a custom tile of DatePickerDialog
-        datePickerDialog.setCustomTitle(tv);
+//        datePickerDialog.setCustomTitle(tv);
 
         // Or you can simply set a tile for DatePickerDialog
             /*

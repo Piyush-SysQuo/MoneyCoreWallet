@@ -24,11 +24,13 @@ public class RetrofitInstance {
 
        // add logging as last interceptor
         httpClient.addInterceptor(logging);
+        httpClient.addInterceptor(new BasicAuthInterceptor("vx2Q3XTNTamsfLjX2z4m", "k7G3fpPTLCttgFy3eG5r"));
+
 
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
-                     .client(httpClient.build())
+                    .client(httpClient.build())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

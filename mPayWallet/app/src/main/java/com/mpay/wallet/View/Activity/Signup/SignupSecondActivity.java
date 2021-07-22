@@ -1,9 +1,5 @@
 package com.mpay.wallet.View.Activity.Signup;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.ContextThemeWrapper;
-import androidx.appcompat.widget.PopupMenu;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,16 +8,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.TypedValue;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -38,9 +36,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -48,10 +62,13 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.mpay.wallet.R;
-import com.mpay.wallet.Utils.OTP_Dialog;
+import com.mpay.wallet.Utils.AlertPopup;
+import com.mpay.wallet.Utils.Constants;
+import com.mpay.wallet.Utils.Progress;
 import com.mpay.wallet.Utils.Utility;
 import com.mpay.wallet.Utils.Validation;
 import com.mpay.wallet.View.Activity.Login.LoginActivity;
+import com.mpay.wallet.View.Activity.Signup.viewmodel.SignUpViewModel;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -59,8 +76,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import maes.tech.intentanim.CustomIntent;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class SignupSecondActivity extends AppCompatActivity {
     public TextInputLayout MTIL_passwordLayout_SignUp, MTIL_re_passwordLayout_SignUp, MTIL_idNumberLayout, MTIL_idTypeLayout, MTIL_idTypeLayout_Menu;
@@ -75,22 +97,53 @@ public class SignupSecondActivity extends AppCompatActivity {
     public CheckBox ck_condition;
     private TextView TV_btm_dlg_Front_Sz_No;
     ImageView IV_btm_dlg_Front_Sz_Nm;
-    EditText etfirst, etsecand, etthird, etfourth;
+    EditText etfirst, etsecand, etthird, etfourth,etfive,etSix;
     AlertDialog alertDialog;
     private DialogInterface dialog;
     private String imageIndex="frontImage";
     public File frontImageFile, backImageFile;
     ProgressBar ProgressImagesize;
     Dialog dialogOTP;
+
+    String firstName,middleName,lastName,mobileNumber,emailId,dob,idType;
+    private Progress progress;
+    private File fileFront,fileBack;
+    private FirebaseAuth mAuth;
+    private  PhoneAuthProvider.OnVerificationStateChangedCallbacks  mCallbacks;
+    private String verificationCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_second);
         Initialization();
+
+        getIntentData();
     }
-//------------------------------------------------------------------------------------------------\\
+
+    private void getIntentData() {
+
+        //  get data from intent
+        Intent intent = getIntent();
+
+        firstName=intent.getStringExtra(Constants.FIRST_NAME);
+        middleName=intent.getStringExtra(Constants.MIDDLE_NAME);
+        lastName=intent.getStringExtra(Constants.LAST_NAME);
+        mobileNumber=intent.getStringExtra(Constants.MOBILE_NO);
+        emailId=intent.getStringExtra(Constants.EMAIL);
+        dob=intent.getStringExtra(Constants.DOB);
+    }
+
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void Initialization(){
+
+        mAuth = FirebaseAuth.getInstance();
+        // initialize progress dialog instance
+        progress = new Progress(this);
+        (Objects.requireNonNull(progress.getWindow())).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progress.setCanceledOnTouchOutside(false);
+        progress.setCancelable(false);
+
         ACTV_idTypeAutoCmplt    = (AutoCompleteTextView) findViewById(R.id.ACTV_idTypeAutoCmplt);
         Spinner_ID_Selection    = (Spinner) findViewById(R.id.Spinner_ID_Selection);
         MTIL_idTypeLayout       = findViewById(R.id.MTIL_idTypeLayout);
@@ -116,7 +169,7 @@ public class SignupSecondActivity extends AppCompatActivity {
         IV_backImg              = (ImageView) findViewById(R.id.IV_backImg);
         IV_backImg_Cross        = (ImageView) findViewById(R.id.IV_backImg_Cross);
 
-        
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.id_type_textview,getResources().getStringArray(R.array.id_proof));
         ACTV_idTypeAutoCmplt.setAdapter(adapter);
 
@@ -132,14 +185,14 @@ public class SignupSecondActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
-                MTIL_idTypeLayout_Menu.setEndIconOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        showPopupMenu(view, false, R.style.MyPopupOtherStyle);
-                    }
-                });   }
+            }
         });
-
+        MTIL_idTypeLayout_Menu.setEndIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopupMenu(view, false, R.style.MyPopupOtherStyle);
+            }
+        });
         IV_frontImg_Cross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,7 +238,41 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         });
 
+    }
+    //------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (view.getId())
+        {
+            case R.id.EditText_Password:
 
+                switch ( motionEvent.getAction() ) {
+                    case MotionEvent.ACTION_DOWN:
+                        Toast.makeText(this,"show",Toast.LENGTH_SHORT).show();
+                        EditText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        EditText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        Toast.makeText(this,"hide",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                break;
+
+            case R.id.EditText_RePassword:
+
+                switch ( motionEvent.getAction() ) {
+                    case MotionEvent.ACTION_DOWN:
+                        Toast.makeText(this,"show",Toast.LENGTH_SHORT).show();
+                        EditText_Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        EditText_Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        Toast.makeText(this,"hide",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                break;
+        }
+        return true;
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
@@ -229,8 +316,9 @@ public class SignupSecondActivity extends AppCompatActivity {
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-
+                idType = menuItem.getTitle().toString();
                 EditText_ID_TYpe_Menu.setText(menuItem.getTitle());
+                MTIL_idNumberLayout.setVisibility(View.VISIBLE);
                 MTIL_idNumberLayout.setHint(menuItem.getTitle());
                 return true;
             }
@@ -238,13 +326,13 @@ public class SignupSecondActivity extends AppCompatActivity {
         popup.show();
 
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     @Override
     protected void onResume() {
         super.onResume();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void signInClick(View view) {
         Intent i = null;
@@ -254,26 +342,21 @@ public class SignupSecondActivity extends AppCompatActivity {
         finish();
         CustomIntent.customType(SignupSecondActivity.this, "left-to-right");
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void SignUP(View view) {
         Validation validation = new Validation(this);
         if(validation.SignUpSecondValidation(this) == true)
         {
-//            dialogOTP = new Dialog(this);
             OTPDialog();
         }
-//        OTP_Dialog alert = new OTP_Dialog();
-//        alert.showPopupWindow(view);
-//        OTPDialog();
-//        alert.showDialogOTP(SignupSecondActivity.this, "OTP has been sent to your Mail ");
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void backPressed(View view) {
         onBackPressed();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     public void AddIDImages(View view) {
         showBottomSheetDialog();
@@ -286,6 +369,21 @@ public class SignupSecondActivity extends AppCompatActivity {
     /**
      *  Bottom Sheet Dialog for Add Id Images
      */
+    private void openDialog(String msg){
+
+        AlertPopup mAlert = new AlertPopup(this);
+        mAlert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mAlert.setMessage(msg);
+        mAlert.setOkButton( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlert.dismiss();
+                //Do want you want
+            }
+        });
+        mAlert.show();
+    }
+
     private void showBottomSheetDialog() {
 
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
@@ -328,7 +426,7 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         });
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     // check run time permission
     private void checkRunTimePermission(String imageIdx) {
@@ -350,13 +448,13 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         }).check();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     private void selectImage(SignupActivity signupActivity) {
         Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePicture, 0);
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -448,7 +546,7 @@ public class SignupSecondActivity extends AppCompatActivity {
 
         dialog.show();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     private void selectImage(Context context) {
         final CharSequence[] options = getResources().getStringArray(R.array.image_dialog_profile);
@@ -475,7 +573,7 @@ public class SignupSecondActivity extends AppCompatActivity {
 
         builder.show();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -494,7 +592,8 @@ public class SignupSecondActivity extends AppCompatActivity {
                         if (imageIndex.equals("frontImage"))
                         {
                             frontImageFile = Utility.getFileWithName(this, selectedImage,"FrontImage.jpeg");
-
+                            fileFront = getFile(selectedImage);
+                            ProgressImagesize.setVisibility(View.VISIBLE);
                             long fileSizeKB = frontImageFile.length()/1024;    // KB
                             long fileSizeMB = fileSizeKB/1024;    // MB
                             int intKB = (int) fileSizeKB;
@@ -516,6 +615,8 @@ public class SignupSecondActivity extends AppCompatActivity {
                         if (imageIndex.equals("backImage"))
                         {
                             backImageFile = Utility.getFileWithName(this, selectedImage,"BackImage.jpeg");
+
+                            fileBack = getFile(selectedImage);
                         }
 
                         if (imageIndex.equals("frontImage")){
@@ -525,7 +626,8 @@ public class SignupSecondActivity extends AppCompatActivity {
                             IV_frontImg.setPadding(0,0,0,0);
                             IV_frontImg.setClickable(false);
                             imageIndex = "frontImage";
-                        }if (imageIndex.equals("backImage")){
+                        }
+                        if (imageIndex.equals("backImage")){
                             IV_backImg.setVisibility(View.VISIBLE);
                             IV_backImg_Cross.setVisibility(View.VISIBLE);
                             IV_backImg.setImageBitmap(selectedImage);
@@ -553,6 +655,7 @@ public class SignupSecondActivity extends AppCompatActivity {
                             {
                                 frontImageFile = Utility.getFileWithName(this, bitmap,"FrontImage.jpeg");
 
+                                ProgressImagesize.setVisibility(View.VISIBLE);
                                 long fileSizeKB = frontImageFile.length()/1024;    // KB
                                 long fileSizeMB = fileSizeKB/1024;    // MB
                                 int intKB = (int) fileSizeKB;
@@ -608,7 +711,7 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         }
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     // convert image into file
     private File getFile(Bitmap selectedImage){
@@ -638,7 +741,7 @@ public class SignupSecondActivity extends AppCompatActivity {
 
         return file;
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     private void OTPDialog() {
         try {
@@ -655,26 +758,31 @@ public class SignupSecondActivity extends AppCompatActivity {
             TextView TvOtpChaneMobileNo = dialogView.findViewById(R.id.TvOtpChaneMobileNo);
             TextView txt_resend = dialogView.findViewById(R.id.txt_resend);
             TextView TvBtnVerify = dialogView.findViewById(R.id.TvBtnVerify);
-
-
+            TvOtpMobileNo.setText(mobileNumber);
+            callFirebaseInitAndOTPSent();
             etfirst = dialogView.findViewById(R.id.etfirst);
             etsecand = dialogView.findViewById(R.id.etsecand);
             etthird = dialogView.findViewById(R.id.etthird);
             etfourth = dialogView.findViewById(R.id.etfourth);
-
-    //            textWatcherForOtp();
+            etfive=dialogView.findViewById(R.id.etfive);
+            etSix=dialogView.findViewById(R.id.etsix);
+            //            textWatcherForOtp();
 
             TvOtpChaneMobileNo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(SignupSecondActivity.this, "Request to Change Mobile no for Verification", Toast.LENGTH_SHORT).show();
+
+                   // Toast.makeText(SignupSecondActivity.this, "Request to Change Mobile no for Verification", Toast.LENGTH_SHORT).show();
                 }
             });
 
             txt_resend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(SignupSecondActivity.this, "OTP Send again", Toast.LENGTH_SHORT).show();
+
+                    callFirebaseInitAndOTPSent();
+
+                    //Toast.makeText(SignupSecondActivity.this, "OTP Send again", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -698,19 +806,77 @@ public class SignupSecondActivity extends AppCompatActivity {
                         String secBox = etsecand.getText().toString().trim();
                         String thirdBox = etthird.getText().toString().trim();
                         String fourthBox = etfourth.getText().toString().trim();
-                        String fOtp = firstBox + secBox + thirdBox + fourthBox;
-                        if (fOtp.equals("1234")) {
-                            alertDialog.dismiss();
-                            Intent i = null;
-                            i = new Intent(SignupSecondActivity.this, LoginActivity.class);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(i);
-                            finish();
-                            CustomIntent.customType(SignupSecondActivity.this, "left-to-right");
-                        } else {
-                            Toast.makeText(SignupSecondActivity.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+                        String fiveBox=etfive.getText().toString().trim();
+                        String sixBox=etSix.getText().toString().trim();
+
+                        String fOtp = firstBox + secBox + thirdBox + fourthBox+fiveBox+sixBox;
+
+
+                        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode.toString(), fOtp);
+                        mAuth.signInWithCredential(credential)
+                                .addOnCompleteListener(SignupSecondActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            // Sign in success, update UI with the signed-in user's information
+                                            try {
+                                                Log.d("TAG", "signInWithCredential:success");
+
+                                                FirebaseUser user = task.getResult().getUser();
+
+
+                                                RequestBody fileBodyFront = RequestBody.create(MediaType.parse("multipart/form-data"), frontImageFile);
+                                                MultipartBody.Part bodyFront = MultipartBody.Part.createFormData(Constants.FRONTIMAGE, frontImageFile.getName(), fileBodyFront);
+
+                                                RequestBody fileBodyBack = RequestBody.create(MediaType.parse("multipart/form-data"), backImageFile);
+                                                MultipartBody.Part bodyBack = MultipartBody.Part.createFormData(Constants.BACKIMAGE, backImageFile.getName(), fileBodyBack);
+
+
+                                                // SignUpModel signUpModel=new SignUpModel(firstName,middleName,lastName,mobileNumber,emailId,emailId,dob,EditText_Password.getText().toString(),idType,EditText_ID_Number.getText().toString(),);
+                                                progress.show();
+                                                // call sign up api
+                                                SignUpViewModel viewModel = ViewModelProviders.of(SignupSecondActivity.this).get(SignUpViewModel.class);
+                                                viewModel.init();
+                                                viewModel.SignUp(firstName, middleName, lastName, mobileNumber, EditText_Password.getText().toString(), emailId, dob, idType, EditText_ID_Number.getText().toString(), "MC", bodyFront, bodyBack);
+                                                viewModel.getVolumesResponseLiveData().observe(SignupSecondActivity.this, signUpResponse -> {
+
+                                                    progress.hide();
+
+                                                    if (signUpResponse != null) {
+                                                        boolean status = signUpResponse.isStatus();
+                                                        if (status) {
+                                                            Toast.makeText(SignupSecondActivity.this, "successfully registered", Toast.LENGTH_SHORT).show();
+                                                            Intent i = new Intent(SignupSecondActivity.this, LoginActivity.class);
+                                                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                            startActivity(i);
+                                                            finish();
+                                                        } else {
+                                                            openDialog(signUpResponse.getMessage());
+                                                        }
+                                                    } else {
+                                                        openDialog("Something went wrong");
+                                                    }
+                                                });
+
+                                                alertDialog.dismiss();
+                                            }catch (Exception e){
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                        else {
+
+                                            Toast.makeText(SignupSecondActivity.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
+                                            // Sign in failed, display a message and update the U
+                                            // Log.w("TAG", "signInWithCredential:failure", task.getException());
+                                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                                // The verification code entered was invalid
+                                                Toast.makeText(SignupSecondActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                });
+
+
                     }
                 }
             });
@@ -778,14 +944,58 @@ public class SignupSecondActivity extends AppCompatActivity {
                     if (etfourth.getText().toString().length() == 1) {
                         //                    fou.continueTv.requestFocus();
                         try {
-                            etfourth.requestFocus();
+                            etfive.requestFocus();
+                             } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        etthird.requestFocus();
+                    }
+                }
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            });
+
+
+            etfive.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (etfive.getText().toString().length() == 1) {
+                        //                    fou.continueTv.requestFocus();
+                        try {
+                            etSix.requestFocus();
+                                } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        etfourth.requestFocus();
+                    }
+                }
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            });
+            etSix.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (etSix.getText().toString().length() == 1) {
+                        //                    fou.continueTv.requestFocus();
+                        try {
+                            etSix.requestFocus();
                             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     } else {
-                        etthird.requestFocus();
+                        etfive.requestFocus();
                     }
                 }
                 @Override
@@ -801,7 +1011,7 @@ public class SignupSecondActivity extends AppCompatActivity {
         alertDialog.show();
 //        dialogOTP.show();
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     private void textWatcherForOtp() {
         etfirst.addTextChangedListener(new TextWatcher() {
@@ -879,7 +1089,7 @@ public class SignupSecondActivity extends AppCompatActivity {
             }
         });
     }
-//------------------------------------------------------------------------------------------------\\
+    //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
     @Override
     public void onBackPressed() {
@@ -898,4 +1108,56 @@ public class SignupSecondActivity extends AppCompatActivity {
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
 
+
+
+    private void callFirebaseInitAndOTPSent() {
+        initFireBaseCallbacks();
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber(mobileNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .build();
+
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
+
+    private void initFireBaseCallbacks() {
+        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(PhoneAuthCredential credential) {
+                if(credential.getSmsCode().toString().length()==6){
+
+                    etfirst.setText(credential.getSmsCode().toString().substring(0));
+                    etsecand.setText(credential.getSmsCode().toString().substring(1));
+                    etthird.setText(credential.getSmsCode().toString().substring(2));
+                    etfourth.setText(credential.getSmsCode().toString().substring(3));
+                    etfive.setText(credential.getSmsCode().toString().substring(4));
+                    etSix.setText(credential.getSmsCode().toString().substring(5));
+
+                    etfirst.setSelection(etfirst.getText().length());
+                    etsecand.setSelection(etsecand.getText().length());
+                    etthird.setSelection(etthird.getText().length());
+                    etfourth.setSelection(etfourth.getText().length());
+                    etfive.setSelection(etfive.getText().length());
+                    etSix.setSelection(etSix.getText().length());
+                }
+            }
+
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
+                Toast.makeText(SignupSecondActivity.this, "Verification Failed", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onCodeSent(@NonNull String verificationId,
+                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                Toast.makeText(SignupSecondActivity.this, "Verification code sent successfully", Toast.LENGTH_SHORT).show();
+                verificationCode = verificationId;
+
+            }
+        };
+    }
 }

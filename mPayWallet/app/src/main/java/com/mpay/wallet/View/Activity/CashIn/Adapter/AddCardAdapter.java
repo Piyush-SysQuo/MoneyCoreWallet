@@ -44,7 +44,7 @@ public class AddCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         CardItemList itemAdapter = mList.get(position);
         try {
-            ((ViewHolder) viewHolder).Tv_Adpt_AddCard.setText(itemAdapter.getCardno());
+            ((ViewHolder) viewHolder).Tv_Adpt_AddCard.setText("********"+ itemAdapter.getCardno().substring(12, 16));
 
             if(position % 2 == 0)
             {

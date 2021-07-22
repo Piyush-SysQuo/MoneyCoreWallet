@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.Constants;
+import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.Welcome.WelcomeActivityFirst;
 import com.mpay.wallet.View.Fragment.home.adapter.RecentTransactionAdapter;
 
@@ -28,7 +29,7 @@ public class ChangeLanguageActivity extends AppCompatActivity {
 
     LinearLayout LinearLayout_English, LinearLayout_France;
     TextView Tv_SaveLanguage;
-    String languageCode = null;
+    String languageCode = "er";
     String caller = null;
     String packageNm = null;
     Class callerClass = null;
@@ -61,7 +62,8 @@ public class ChangeLanguageActivity extends AppCompatActivity {
         }
 
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void englisgSelect(View view) {
         LinearLayout_English.setBackgroundResource(R.drawable.background_round);
         LinearLayout_English.setSelected(true);
@@ -69,6 +71,7 @@ public class ChangeLanguageActivity extends AppCompatActivity {
         LinearLayout_France.setBackgroundResource(R.drawable.background_square_gray);
 
         languageCode = "er";
+        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Language(Constants.KEY_LANGUAGE, languageCode);
         setLocale(languageCode);
         if(caller != null)
         {
@@ -91,7 +94,8 @@ public class ChangeLanguageActivity extends AppCompatActivity {
             finish();
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void frenchSelect(View view) {
         LinearLayout_English.setBackgroundResource(R.drawable.background_square_gray);
         LinearLayout_English.setSelected(false);
@@ -99,6 +103,7 @@ public class ChangeLanguageActivity extends AppCompatActivity {
         LinearLayout_France.setBackgroundResource(R.drawable.background_round);
 
         languageCode = "fr";
+        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Language(Constants.KEY_LANGUAGE, languageCode);
         setLocale(languageCode);
         if(caller != null)
         {
@@ -121,7 +126,8 @@ public class ChangeLanguageActivity extends AppCompatActivity {
             finish();
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void SaveLanguage(View view) {
         if(LinearLayout_English.isSelected() == false && LinearLayout_France.isSelected() == false)
         {
@@ -133,8 +139,9 @@ public class ChangeLanguageActivity extends AppCompatActivity {
             {
 
                 Intent i = null;
+                String lngCode = SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE);
                 i = new Intent(ChangeLanguageActivity.this, callerClass);
-                i.putExtra(Constants.KEY_LANGUAGE,languageCode);
+                i.putExtra(Constants.KEY_LANGUAGE, lngCode);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 CustomIntent.customType(this, "left-to-right");
@@ -142,8 +149,9 @@ public class ChangeLanguageActivity extends AppCompatActivity {
             }
             else {
                 Intent i = null;
+                String lngCode = SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE);
                 i = new Intent(ChangeLanguageActivity.this, WelcomeActivityFirst.class);
-                i.putExtra(Constants.KEY_LANGUAGE, languageCode);
+                i.putExtra(Constants.KEY_LANGUAGE, lngCode);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 CustomIntent.customType(this, "left-to-right");
@@ -151,7 +159,8 @@ public class ChangeLanguageActivity extends AppCompatActivity {
             }
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public  void setLocale(String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
@@ -160,4 +169,6 @@ public class ChangeLanguageActivity extends AppCompatActivity {
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
 }

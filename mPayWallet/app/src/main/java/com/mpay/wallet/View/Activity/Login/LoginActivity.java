@@ -5,8 +5,9 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.fingerprint.FingerprintManager;
@@ -29,10 +30,10 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.gson.reflect.TypeToken;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -40,6 +41,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.mpay.wallet.R;
+import com.mpay.wallet.Utils.AlertPopup;
 import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.Progress;
 import com.mpay.wallet.Utils.SharedPreferenceAmount;
@@ -47,9 +49,12 @@ import com.mpay.wallet.Utils.Utility;
 import com.mpay.wallet.Utils.Validation;
 import com.mpay.wallet.View.Activity.BioMetric.FingerprintHandler;
 import com.mpay.wallet.View.Activity.ForgotPassword.ForgotPasswordActivity;
-import com.mpay.wallet.View.Activity.ChangeLanguage.ChangeLanguageActivity;
 import com.mpay.wallet.View.Activity.Home.HomeActivity;
+import com.mpay.wallet.View.Activity.Login.model.LoginModel;
+import com.mpay.wallet.View.Activity.Login.viewmodel.LoginViewModel;
 import com.mpay.wallet.View.Activity.Signup.SignupActivity;
+import com.mpay.wallet.View.Activity.Signup.SignupSecondActivity;
+import com.mpay.wallet.View.Activity.Signup.viewmodel.SignUpViewModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +68,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 
@@ -116,14 +122,12 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-
-
-        TV_Login_select_Lng    = findViewById(R.id.TV_Login_select_Lng);
-        IV_login_Bio    = findViewById(R.id.IV_login_Bio);
-        Login_EditText_Email    = findViewById(R.id.Login_EditText_Email);
-        Login_EditText_Password    = findViewById(R.id.Login_EditText_Password);
-        MTIL_Login_emailLayout    = findViewById(R.id.MTIL_Login_emailLayout);
-        MTIL_Login_passwordLayout    = findViewById(R.id.MTIL_Login_passwordLayout);
+        TV_Login_select_Lng         = findViewById(R.id.TV_Login_select_Lng);
+        IV_login_Bio                = findViewById(R.id.IV_login_Bio);
+        Login_EditText_Email        = findViewById(R.id.Login_EditText_Email);
+        Login_EditText_Password     = findViewById(R.id.Login_EditText_Password);
+        MTIL_Login_emailLayout      = findViewById(R.id.MTIL_Login_emailLayout);
+        MTIL_Login_passwordLayout   = findViewById(R.id.MTIL_Login_passwordLayout);
         // initialize progress dialog instance
         progress = new Progress(this);
         (Objects.requireNonNull(progress.getWindow())).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -132,12 +136,11 @@ public class LoginActivity extends AppCompatActivity {
 
         language = "en";
 
-
-
 //        FingerPrint Hardwae Checking
         FingerPrint_Hardwae_Checking();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void FingerPrint_Hardwae_Checking()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -183,6 +186,8 @@ public class LoginActivity extends AppCompatActivity {
             IV_login_Bio.setVisibility(View.GONE);
         }
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void attemptLogin(View view) {
         Validation validation = new Validation(this);
         if(validation.ValidateEmail(this))
@@ -211,38 +216,82 @@ public class LoginActivity extends AppCompatActivity {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            intent.putExtra(Constants.KEY_LANGUAGE,language);
-            startActivity(intent);
-            finish();
+
+
+            progress.show();
+            // call sign up api
+            LoginViewModel viewModel = ViewModelProviders.of(LoginActivity.this).get(LoginViewModel.class);
+            viewModel.init();
+            LoginModel loginModel=new LoginModel(Login_EditText_Email.getText().toString(),Login_EditText_Password.getText().toString());
+
+            viewModel.Login(loginModel);
+            viewModel.getVolumesResponseLiveData().observe(LoginActivity.this, response -> {
+
+                progress.hide();
+
+                if(response!=null){
+                    boolean status = response.isStatus();
+                    if(status){
+
+                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Mail(Constants.EMAIL, Login_EditText_Email.getText().toString());
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.putExtra(Constants.KEY_LANGUAGE,language);
+                        startActivity(intent);
+                        finish();
+                    }else{
+                        openDialog(response.getMessage());
+                    }
+                }
+                else{
+                    openDialog("Something went wrong");
+                }
+            });
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void forgotPassword(View view) {
         Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
         intent.putExtra(Constants.KEY_LANGUAGE,language);
         startActivity(intent);
         finish();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void signUpClick(View view) {
         Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
         intent.putExtra(Constants.KEY_LANGUAGE,language);
         startActivity(intent);
         finish();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void backPressed(View view) {
         finish();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+    private void openDialog(String msg){
+        AlertPopup mAlert = new AlertPopup(this);
+        mAlert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mAlert.setMessage(msg);
+        mAlert.setOkButton( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlert.dismiss();
+                //Do want you want
+            }
+        });
+        mAlert.show();
+    }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void BioMateric(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //Fingerprint API only available on from Android 6.0 (M)
             fingerprintManager = (FingerprintManager) this.getSystemService(Context.FINGERPRINT_SERVICE);
             if (fingerprintManager.hasEnrolledFingerprints()) {
 //                startActivity(new Intent(getApplicationContext(), BiometricActivity.class));
-
                 BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
                         .setTitle("Verification")
                         .setSubtitle("Login Authentication!!!")
@@ -253,29 +302,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     @Override
     public void onBackPressed() {
         finish();
     }
-
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void changeLanguage(View view) {
-        /*PackageInfo pInfo = null;
-        try {
-            pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        String version = pInfo.versionName;
-        Intent intent = new Intent(LoginActivity.this, ChangeLanguageActivity.class);
-        intent.putExtra("caller", "LoginActivity");
-        intent.putExtra("packageNm", LoginActivity.this.getCallingPackage());
-        startActivity(intent);
-        finish();*/
         showPopupMenu(view, true, R.style.MyPopupOtherStyle);
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      * Finger Print
      * @return
@@ -301,6 +340,8 @@ public class LoginActivity extends AppCompatActivity {
         BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, callback);
         return biometricPrompt;
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      * Checking the Security Settings
      */
@@ -315,6 +356,8 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      *  FingerPrint Permission Check
      */
@@ -360,6 +403,8 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      *  FingerPrint Permission Check
      */
@@ -377,7 +422,8 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      * Key Store
      */
@@ -417,6 +463,8 @@ public class LoginActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      * Initializing the Cipher
      * Now that the key has been generated the next step is to initialize the cipher that will be
@@ -454,7 +502,8 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Creating the CryptoObject Instance
      */
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     /**
      * method responsible to show popup menu
      *
@@ -498,8 +547,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(menuItem.getTitle().equals("English")) {
                     TV_Login_select_Lng.setText("EN");
+                    setLocale("er");
+                    SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Language(Constants.KEY_LANGUAGE, "er");
                 }
                 if(menuItem.getTitle().equals("French")) {
+                    setLocale("fr");
+                    SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Language(Constants.KEY_LANGUAGE, "fr");
                     TV_Login_select_Lng.setText("FR");
                 }
                 return true;
@@ -508,4 +561,16 @@ public class LoginActivity extends AppCompatActivity {
         popup.show();
 
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+    public  void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+    }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
 }

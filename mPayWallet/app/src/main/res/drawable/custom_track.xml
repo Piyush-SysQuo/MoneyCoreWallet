@@ -9,8 +9,8 @@
                     <solid android:color="#e0ebf9"/>
                     <corners android:radius="@dimen/_25sdp"/>
                     <size android:height="@dimen/_16sdp" android:width="@dimen/_30sdp"/>
-                    <padding android:left="@dimen/_4sdp"
-                        android:right="@dimen/_4sdp"
+                    <padding android:left="@dimen/_2sdp"
+                        android:right="@dimen/_2sdp"
                         android:top="@dimen/_2sdp"
                         android:bottom="@dimen/_2sdp"/>
                 </shape>
@@ -21,8 +21,8 @@
                     <solid android:color="@color/colorPrimaryDark"/>
                     <corners android:radius="@dimen/_25sdp"/>
                     <size android:height="@dimen/_16sdp" android:width="@dimen/_30sdp"/>
-                    <padding android:left="@dimen/_4sdp"
-                        android:right="@dimen/_4sdp"
+                    <padding android:left="@dimen/_2sdp"
+                        android:right="@dimen/_2sdp"
                         android:top="@dimen/_2sdp"
                         android:bottom="@dimen/_2sdp"/>
                 </shape>

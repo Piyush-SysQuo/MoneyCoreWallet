@@ -2,23 +2,23 @@ package com.mpay.wallet.View.Activity.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.AlertPopup;
 import com.mpay.wallet.Utils.SharedPreferenceAmount;
+import com.mpay.wallet.View.Activity.More.MoreActivity;
 import com.mpay.wallet.View.Fragment.More.MoreFragment;
 import com.mpay.wallet.View.Fragment.Scan_QR.ScanQRFragment;
-import com.mpay.wallet.View.Fragment.Space.SpaceFragment;
-import com.mpay.wallet.View.Fragment.Wallet.WalletFragment;
+import com.mpay.wallet.View.Fragment.Space.View.SpaceFragment;
 import com.mpay.wallet.View.Fragment.home.view.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -179,7 +179,10 @@ public class HomeActivity extends AppCompatActivity {
         moreImageView.setColorFilter(getResources().getColor(R.color.button_color));
         moreTextView.setTextColor(getResources().getColor(R.color.button_color));
         moreView.setBackgroundColor(getResources().getColor(R.color.button_color));
-        getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new MoreFragment()).addToBackStack(null).commit();
+
+        Intent in = new Intent(this, MoreActivity.class);
+        startActivity(in);
+        finish();
     }
 
     @Override

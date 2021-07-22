@@ -43,7 +43,7 @@
     <string name="save">Save</string>
     <string name="english">English</string>
     <string name="change_number">Change Number</string>
-    <string name="resend_otp">Resend OTP in</string>
+    <string name="resend_otp">Resend OTP</string>
     <string name="verify">VERIFY</string>
     <string name="easy_fast_and_secure">Easy, Fast and Secure</string>
     <string name="the_app_to_handle_all_your_payments_send_receive_money_pay_bills_merchants_no_registration_fees_no_minimum_balance_no_bank_account_required"><![CDATA[The app to handle all your payments! Send & receive money , Pay bills & Merchants. NO registration fees, NO minimum balance & NO bank account required.]]></string>
@@ -52,7 +52,7 @@
     <string name="transfer_money_to_your_family_and_friends_instantly_in_a_secure_and_convenient_way">Transfer money to your family and friends instantly in a secure and convenient way.</string>
     <string name="if_you_have_an_account">If you have an account</string>
     <string name="forgot_passwordhead">Forgot Password</string>
-    <string name="email_id_phone_number">Email ID / Phone Number</string>
+    <string name="email_id_phone_number">Phone Number</string>
     <string name="reset_password">Reset Password</string>
     <string name="take_photo">Take Photo</string>
     <string name="choose_gallery">Choose from Gallery</string>
@@ -161,5 +161,88 @@
     <string name="withdraw_receipt">Withdraw Receipt</string>
     <string name="view_statement">View Statement</string>
     <string name="request_statement">Request Statement</string>
+    <string name="apply">Apply</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="create_space">+ Create Space</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="create_space_Head">Create Space</string>
+    <string name="name_your_space">Name your space</string>
+    <string name="traget_amount">Traget Amount</string>
+    <string name="traget_date">Traget Date</string>
+    <string name="create">Create</string>
+    <string name="select_space">Select Space</string>
+    <string name="my_profile">My Profile</string>
+    <string name="change_security_code">Change Security Code</string>
+    <string name="lock_unlock">Lock/Unlock</string>
+    <string name="manage_account">Manage Account</string>
+    <string name="support">Support</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="confirm_new_security_code">Confirm New Security Code</string>
+    <string name="enter_old_security_code">Enter Old Security Code</string>
+    <string name="enter_new_security_code">Enter New Security Code</string>
+    <string name="sent_successfully">Sent Successfully</string>
+    <string name="details_statement_has_been_nsent_to_your_email_id">Details statement has been\nsent to your email ID.</string>
+    <string name="security_code_changed">Security Code Changed!</string>
+    <string name="you_can_now_log_in_to_account_nwith_the_new_security_code">You can now log in to account\nwith the new security code</string>
+    <string name="log_in_to_account">Log in to Account</string>
+    <string name="saved_account">Saved Account</string>
+    <string name="need_help">Need Help?</string>
+    <string name="feel_free_to_drop_a_line_or_call_us">Feel free to drop a line or call us</string>
+    <string name="call_us">Call Us</string>
+    <string name="mail_us">Mail Us</string>
+    <string name="submit_a_query">Submit a Query</string>
+    <string name="message">Message</string>
+    <string name="subject">Subject</string>
+    <string name="query_type">Query Type</string>
+    <string name="submit">Submit</string>
+    <string name="about_us">About Us</string>
+    <string name="faq">FAQ</string>
+    <string name="app_version">App Version</string>
+    <string name="change">Change</string>
+    <string name="gender">Gender</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="legal_id">Legal ID</string>
+    <string name="add_new_id">Add New ID +</string>
+    <string name="address">Address</string>
+    <string name="add_new_address">Add New Address +</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="enter_new_email_id">Enter New Email ID</string>
+    <string name="change_email_id">Change Email ID</string>
+    <string name="address_1">Address 1</string>
+    <string name="address_2">Address 2</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="city_locality">City/Locality</string>
+    <string name="change_phone_number">Change Phone Number</string>
+    <string name="enter_new_phone_number">Enter New Phone Number</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="account">Account</string>
+    <string name="sendAgain">Send Again</string>
+
+
+    <string-array name="filters">
+        <item>Last 10 Trans.</item>
+        <item>Last Week</item>
+        <item>Last Month</item>
+        <item>Custom Date</item>
+    </string-array>
+
+    <string-array name="space_name">
+        <item>Space-1</item>
+        <item>Space-2</item>
+        <item>Space-3</item>
+    </string-array>
+    <string name="title_activity_o_t_p_verification">OTPVerificationActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_verification">VerificationActivity</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="title_activity_new_password">NewPasswordActivity</string>
+    <string name="password_reset">Password Reset</string>
 
 </resources>

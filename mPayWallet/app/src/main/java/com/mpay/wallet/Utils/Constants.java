@@ -20,21 +20,31 @@ public class Constants {
     public static final String TOTAL_AMOUNT     = "TOTAL_AMOUNT";
     public static final String RECIVED_AMOUNT   = "RECEIVED_AMOUNT";
     public static final String SPENT_AMOUNT     = "SPENT_AMOUNT";
+    public static final String SUPPORT_PHONE     = "+337005954771";
 
 
-     public static String BASE_URL = "";  //  staging
+     public static String BASE_URL = "http://163.172.70.13:8080/";  //  staging Old
+//     public static String BASE_URL = "http://163.172.70.13:4200/";  //  staging
 
 
     /*keys*/
     public static final String KEY_LANGUAGE = "language";
     public static final String KEY_SKIP_SPLASH = "skip";
-    public static final String FIRST_NAME = "FIRST_NAME";
-    public static final String MIDDLE_NAME = "MIDDLE_NAME";
-    public static final String LAST_NAME = "LAST_NAME";
+    public static final String FIRST_NAME = "firstName";
+    public static final String MIDDLE_NAME = "middleName";
+    public static final String LAST_NAME = "lastName";
+    public static final String PASSWORD="password";
+    public static final String PR_MOBLINE="prPhone1";
     public static final String COUNTRY_CODE = "COUNTRY_CODE";
     public static final String MOBILE_NO = "MOBILE_NO";
-    public static final String DOB = "DOB";
-    public static final String EMAIL = "EMAIL";
+    public static final String DOB = "dateOfBirth";
+    public static final String EMAIL = "email";
+    public static final String GENDER="gender";
+    public static final String IDTYPE="idType";
+    public static final String IDNUMBER="idNumber";
+    public static final String INSTITUTIONCODE="institutionCode";
+    public static final String FRONTIMAGE="front_image";
+    public static final String BACKIMAGE="back_image";
     /*public static final String KEY_DATA = "DATA";
     public static final String KEY_NOTES = "cancel_notes";
     public static final String CARE_GIVER = "care_giver";

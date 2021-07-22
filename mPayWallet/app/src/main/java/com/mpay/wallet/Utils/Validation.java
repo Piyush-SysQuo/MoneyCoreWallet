@@ -9,10 +9,7 @@ import android.widget.Toast;
 import com.mpay.wallet.View.Activity.Login.LoginActivity;
 import com.mpay.wallet.View.Activity.Signup.SignupActivity;
 import com.mpay.wallet.View.Activity.Signup.SignupSecondActivity;
-import com.mpay.wallet.View.Fragment.Confirm_Transfer.ConfirmTransferFragment;
 import com.mpay.wallet.View.Fragment.Transfer.TransferFragment;
-
-import java.util.regex.Pattern;
 
 public class Validation {
     private Context applicationContext;
@@ -50,7 +47,7 @@ public class Validation {
         boolean result = false;
         try {
             int a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0, k = 0;
-            if (signupActivity.EditText_FirstName.getText().toString().isEmpty() == true) {
+            if  (signupActivity.EditText_FirstName.getText().toString().isEmpty() == true) {
                 signupActivity.MTIL_FirstNameLayout.setErrorEnabled(true);
                 signupActivity.MTIL_FirstNameLayout.setError("Please Enter First Name");
                 signupActivity.MTIL_FirstNameLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED));
@@ -89,12 +86,12 @@ public class Validation {
                 signupActivity.MTIL_mobileNumberLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED));
                 c = 0;
             }
-            if (signupActivity.EditText_MobileNumber.getText().toString().length() < 11) {
+            if (signupActivity.EditText_MobileNumber.getText().toString().length() < 10) {
                 signupActivity.MTIL_mobileNumberLayout.setError("Please Enter Correct Mobile No.");
                 signupActivity.MTIL_mobileNumberLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED));
                 c = 0;
             }
-            if (signupActivity.EditText_MobileNumber.getText().toString().isEmpty() == false && signupActivity.EditText_MobileNumber.getText().toString().length() == 11) {
+            if (signupActivity.EditText_MobileNumber.getText().toString().isEmpty() == false && signupActivity.EditText_MobileNumber.getText().toString().length() == 10) {
                 signupActivity.MTIL_mobileNumberLayout.setErrorEnabled(false);
                 c = 1;
             }

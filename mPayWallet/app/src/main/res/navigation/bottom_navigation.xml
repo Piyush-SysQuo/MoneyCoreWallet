@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_Space"
-        android:name="com.mpay.wallet.View.Fragment.Space.SpaceFragment"
+        android:name="com.mpay.wallet.View.Fragment.Space.View.SpaceFragment"
         android:label="@string/space"
         tools:layout="@layout/fragment_space" />
 

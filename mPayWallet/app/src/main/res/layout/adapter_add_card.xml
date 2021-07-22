@@ -19,16 +19,19 @@
         android:paddingBottom="@dimen/_4sdp"
         android:weightSum="5">
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/Iv_Adpt_AddCard"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:gravity="center"
             android:scaleType="fitXY"
             android:src="@drawable/visa" />
-
+        </RelativeLayout>
         <TextView
             android:id="@+id/Tv_Adpt_AddCard"
             android:layout_width="0dp"

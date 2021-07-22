@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.Constants;
+import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.ChangeLanguage.ChangeLanguageActivity;
+import com.mpay.wallet.View.Activity.Welcome.WelcomeActivityFirst;
 
 import java.util.Locale;
 
@@ -44,14 +46,25 @@ public class SplashActivity extends AppCompatActivity {
         isSkip = sharedPreferences.getBoolean(Constants.KEY_SKIP_SPLASH,false);
         setLocale("en");
         new Handler().postDelayed(() -> {
-                Intent i = null;
-                String lngCode = sharedPreferences.getString(Constants.KEY_LANGUAGE,"");
-                i = new Intent(SplashActivity.this, ChangeLanguageActivity.class);
-                i.putExtra(Constants.KEY_LANGUAGE,lngCode);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                CustomIntent.customType(this, "left-to-right");
-                /*
+                    if (SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE) != null) {
+                        Intent i = null;
+                        String lngCode = SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE);
+                        i = new Intent(SplashActivity.this, WelcomeActivityFirst.class);
+                        i.putExtra(Constants.KEY_LANGUAGE, lngCode);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        CustomIntent.customType(this, "left-to-right");
+                    }
+                    else
+                    {
+                        Intent i = null;
+                        i = new Intent(SplashActivity.this, ChangeLanguageActivity.class);
+                        i.putExtra(Constants.KEY_LANGUAGE, "");
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        CustomIntent.customType(this, "left-to-right");
+                    }
+                    /*
                 Intent Animation Type
 
                 left-to-right

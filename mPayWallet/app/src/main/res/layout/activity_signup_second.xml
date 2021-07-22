@@ -192,6 +192,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:clickable="false"
+                android:editable="false"
                 style="@style/TextView_11_Medium_White"
                 android:textColor="@color/colorPrimaryDark"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -203,7 +204,8 @@
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
             android:hint="@string/passportno"
-            android:layout_marginTop="@dimen/_20sdp">
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="gone">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/EditText_ID_Number"
                 android:layout_width="match_parent"

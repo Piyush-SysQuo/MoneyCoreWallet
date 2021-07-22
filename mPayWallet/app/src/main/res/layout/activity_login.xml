@@ -63,7 +63,7 @@
             android:layout_gravity="center|end"
             android:gravity="right"
             android:onClick="changeLanguage"
-            android:layout_marginTop="@dimen/_16sdp">
+            android:layout_marginTop="@dimen/_5sdp">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hintTextAppearance="@style/TextInputLayout_Login"
-    android:hint="@string/username"
+    android:hint="@string/emailaddress"
     android:layout_marginTop="@dimen/_30sdp">
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"

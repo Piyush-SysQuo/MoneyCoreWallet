@@ -56,9 +56,11 @@
 
 
         <RelativeLayout
+            android:id="@+id/Layout_btn_addPicID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp">
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/IV_btm_dlg_Front_Sz_Nm"
@@ -91,7 +93,8 @@
             android:layout_height="@dimen/_3sdp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_marginTop="@dimen/_8sdp"
-            android:theme="@style/ProgressBarStyle"/>
+            android:theme="@style/ProgressBarStyle"
+            android:visibility="gone"/>
 
 
 
