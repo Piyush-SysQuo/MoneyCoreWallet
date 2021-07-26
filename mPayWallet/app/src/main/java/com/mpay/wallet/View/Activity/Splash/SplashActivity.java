@@ -28,13 +28,15 @@ public class SplashActivity extends AppCompatActivity {
 //    private LoginResponse loginResponse;
     private FirebaseAnalytics mFirebaseAnalytics;
     private boolean isSkip;
-
+    String languageCode = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        /*SharedPreferenceAmount.getInstance(getApplicationContext()).setString_WalletType("walletType", "Prepaid");
+        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_WalletID("walletId", "WL1020");*/
 
         ImageView IV_Splash1 = (ImageView) findViewById(R.id.IV_Splash1);
         ImageView IV_Splash2 = (ImageView) findViewById(R.id.IV_Splash2);
@@ -44,7 +46,14 @@ public class SplashActivity extends AppCompatActivity {
         // get data from shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_SPLASH_NAME,MODE_PRIVATE);
         isSkip = sharedPreferences.getBoolean(Constants.KEY_SKIP_SPLASH,false);
-        setLocale("en");
+        if(SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE) != null)
+        {
+         languageCode = SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE);
+            setLocale(languageCode);
+        }
+        else {
+            setLocale("en");
+        }
         new Handler().postDelayed(() -> {
                     if (SharedPreferenceAmount.getInstance(this).getString_Language(Constants.KEY_LANGUAGE) != null) {
                         Intent i = null;

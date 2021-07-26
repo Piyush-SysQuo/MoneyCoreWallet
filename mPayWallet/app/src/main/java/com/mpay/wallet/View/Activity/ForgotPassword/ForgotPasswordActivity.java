@@ -20,10 +20,6 @@ import com.mpay.wallet.Utils.AlertPopup;
 import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.Progress;
 import com.mpay.wallet.View.Activity.ForgotPassword.viewmodel.ForgotPasswordViewModel;
-import com.mpay.wallet.View.Activity.Home.HomeActivity;
-import com.mpay.wallet.View.Activity.Login.LoginActivity;
-import com.mpay.wallet.View.Activity.Login.model.LoginModel;
-import com.mpay.wallet.View.Activity.Login.viewmodel.LoginViewModel;
 
 import java.util.HashMap;
 import java.util.Objects;

@@ -1,6 +1,7 @@
 package com.mpay.wallet.View.Activity.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,9 +15,9 @@ import android.widget.Toast;
 
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.AlertPopup;
+import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.SharedPreferenceAmount;
-import com.mpay.wallet.View.Activity.More.MoreActivity;
-import com.mpay.wallet.View.Fragment.More.MoreFragment;
+import com.mpay.wallet.View.Activity.More.VIEW.MoreActivity;
 import com.mpay.wallet.View.Fragment.Scan_QR.ScanQRFragment;
 import com.mpay.wallet.View.Fragment.Space.View.SpaceFragment;
 import com.mpay.wallet.View.Fragment.home.view.HomeFragment;
@@ -34,7 +35,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Initialization();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void Initialization()
     {
         homeImageView   = findViewById(R.id.homeImageView);
@@ -54,10 +56,49 @@ public class HomeActivity extends AppCompatActivity {
         spaceView       = findViewById(R.id.spaceView);
         scanQRView      = findViewById(R.id.scanQRView);
         moreView        = findViewById(R.id.moreView);
-
+//        registerWallet();
         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new HomeFragment()).commit();
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+    /*public void registerWallet(){
+        WalletViewModel viewModel = ViewModelProviders.of(HomeActivity.this).get(WalletViewModel.class);
+        viewModel.init();
+        ClientCodePost clientCodePost   =   new ClientCodePost(Integer.parseInt(Constants.APP_CLIENTCODE));
+//        clientCodePost.setClientCodePost(Integer.parseInt(Constants.APP_CLIENTCODE));
+        clientCodePost.setClientCodePost(35);
 
+        InstitutionCodePost institutionCodePost =   new InstitutionCodePost("MC");
+        institutionCodePost.setInstitutionCodePost("MC");
+
+        WalletPost walletPost =   new WalletPost();
+        walletPost.setClientCodePost(clientCodePost);
+        walletPost.setInstitutionCodePost(institutionCodePost);
+        walletPost.setStatusCode("N");
+
+        viewModel.WalletRegistration(walletPost);
+        viewModel.getVolumesResponseLiveData().observe(HomeActivity.this, response -> {
+
+//            progress.hide();
+
+            if(response!=null){
+                boolean status = response.getStatus();
+                if(status){
+                    Constants.APP_CLIENTWALLETID    = response.getResult().getWalletId();
+                    Constants.APP_CLIENTWALLETTYPE  = response.getResult().getWalletType();
+//                    Constants.APP_CLIENTQRCODE      = response.getResult().getQrCode();
+                }else{
+                    openDialog(response.getMessage());
+                }
+            }
+            else{
+                openDialog("Something went wrong");
+//                    openDialog(signUpResponse.getMessage());
+            }
+        });
+    }*/
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void homeClick(View view) {
         homeImageView.setColorFilter(getResources().getColor(R.color.button_color));
         homeTextView.setTextColor(getResources().getColor(R.color.button_color));
@@ -81,7 +122,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new HomeFragment()).addToBackStack(null).commit();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void walletsClick(View view) {
         homeImageView.setColorFilter(getResources().getColor(R.color.ensan_gray));
         homeTextView.setTextColor(getResources().getColor(R.color.ensan_gray));
@@ -105,7 +147,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new HomeFragment()).addToBackStack(null).commit();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void spaceClick(View view) {
         homeImageView.setColorFilter(getResources().getColor(R.color.ensan_gray));
         homeTextView.setTextColor(getResources().getColor(R.color.ensan_gray));
@@ -128,7 +171,8 @@ public class HomeActivity extends AppCompatActivity {
         moreView.setBackgroundColor(0);
         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, new SpaceFragment()).addToBackStack(null).commit();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void scanQrClick(View view) {
         homeImageView.setColorFilter(getResources().getColor(R.color.ensan_gray));
         homeTextView.setTextColor(getResources().getColor(R.color.ensan_gray));
@@ -158,7 +202,8 @@ public class HomeActivity extends AppCompatActivity {
 //        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, scanQRFragment).addToBackStack("Home").commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.containerLayout, scanQRFragment).addToBackStack(null).commit();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     public void moreClick(View view) {
         homeImageView.setColorFilter(getResources().getColor(R.color.ensan_gray));
         homeTextView.setTextColor(getResources().getColor(R.color.ensan_gray));
@@ -184,7 +229,8 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(in);
         finish();
     }
-
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -204,6 +250,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
     private void openDialog(String msg){
 
         AlertPopup mAlert = new AlertPopup(this);
@@ -217,4 +265,8 @@ public class HomeActivity extends AppCompatActivity {
         });
         mAlert.show();
     }
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
 }

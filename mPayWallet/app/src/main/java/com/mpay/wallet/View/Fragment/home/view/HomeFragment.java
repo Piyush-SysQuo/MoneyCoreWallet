@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,7 +25,6 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.snackbar.Snackbar;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -40,11 +38,9 @@ import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.DBHelper;
 import com.mpay.wallet.Utils.SharedPreferenceAmount;
 import com.mpay.wallet.View.Activity.CashIn.View.CashInActivity;
-import com.mpay.wallet.View.Activity.More.MoreActivity;
 import com.mpay.wallet.View.Activity.MyQRCodeActivity;
 import com.mpay.wallet.View.Activity.Statement.View.StatementActivity;
 import com.mpay.wallet.View.Activity.Withdraw.WithdrawActivity;
-import com.mpay.wallet.View.Fragment.MyQRCode.MyQRCodeFragment;
 import com.mpay.wallet.View.Fragment.Notification.View.NotificationFragment;
 import com.mpay.wallet.View.Fragment.Scan_QR.ScanQRFragment;
 import com.mpay.wallet.View.Fragment.Transaction_History.View.TransactionHistoryFragment;
@@ -93,6 +89,9 @@ public class HomeFragment extends Fragment {
     {
         formatter = new DecimalFormat("#0.00");
         mHelper                     = new DBHelper(getActivity());
+
+
+
         TV1     = view.findViewById(R.id.TV1);
         Tv_wallet_Available_Bln     = view.findViewById(R.id.Tv_wallet_Available_Bln);
         Tv_wallet_Received_Bln     = view.findViewById(R.id.Tv_wallet_Received_Bln);
@@ -110,19 +109,21 @@ public class HomeFragment extends Fragment {
         IV_Home_Notification    = view.findViewById(R.id.IV_Home_Notification);
         Tv_Home_Name    = view.findViewById(R.id.Tv_Home_Name);
 
-        try {
+        /*try {
             if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("daviddorvik@gmail.com")) {
                 Tv_Home_Name.setText("Hey Good Morning\nDavid");
             } else if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("william@gmail.com")) {
                 Tv_Home_Name.setText("Hey Good Morning\nWilliam");
 
             } else if (SharedPreferenceAmount.getInstance(getActivity()).getString_Mail(Constants.EMAIL).equals("jayagupta2905@gmail.com")) {
-                Tv_Home_Name.setText("Hey Good Morning\nJaya");
+
 
             }
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
+
+        Tv_Home_Name.setText("Hey Good Morning\n"+Constants.APP_CLIENTFIRSTNAME);
         lnn = view.findViewById(R.id.lnn);
 
         View layout= view.findViewById(R.id.layout);

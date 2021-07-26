@@ -4,8 +4,12 @@ package com.mpay.wallet.connection;
 import androidx.annotation.NonNull;
 
 import com.mpay.wallet.Utils.Constants;
+import com.mpay.wallet.View.Activity.Home.model.WalletPost;
+import com.mpay.wallet.View.Activity.Home.model.WalletResponse;
 import com.mpay.wallet.View.Activity.Login.model.LoginModel;
 import com.mpay.wallet.View.Activity.Login.model.LoginResponse;
+import com.mpay.wallet.View.Activity.More.model.LogoutModel;
+import com.mpay.wallet.View.Activity.More.model.LogoutResponse;
 import com.mpay.wallet.View.Activity.Signup.model.EmailCheckResponse;
 import com.mpay.wallet.View.Activity.Signup.model.SignUpModel;
 import com.mpay.wallet.View.Activity.Signup.model.SignUpResponse;
@@ -32,18 +36,19 @@ public interface ApiDataService {
     // User Registration
     @Multipart
     @POST("api/client/register")
-    Call<SignUpResponse> signUpAPI(@Part(Constants.FIRST_NAME) String firstName,
-                                   @Part(Constants.MIDDLE_NAME) String middleName,
-                                   @Part(Constants.LAST_NAME) String lastName,
-                                   @Part(Constants.PR_MOBLINE) String prPhone1,
-                                   @Part(Constants.PASSWORD) String password,
-                                   @Part(Constants.EMAIL) String email,
-                                   @Part(Constants.DOB) String dob,
-                                   @Part(Constants.IDTYPE) String idType,
-                                   @Part(Constants.IDNUMBER) String idNumber,
-                                   //@Part(Constants.INSTITUTIONCODE) String institutionCode,
+    Call<SignUpResponse> signUpAPI(@Part(Constants.FIRST_NAME) RequestBody firstName,
+                                   @Part(Constants.MIDDLE_NAME) RequestBody middleName,
+                                   @Part(Constants.LAST_NAME) RequestBody lastName,
+                                   @Part(Constants.PR_MOBLINE) RequestBody prPhone1,
+                                   @Part(Constants.PASSWORD) RequestBody password,
+                                   @Part(Constants.EMAIL) RequestBody email,
+                                   @Part(Constants.DOB) RequestBody dob,
+                                   @Part(Constants.IDTYPE) RequestBody idType,
+                                   @Part(Constants.IDNUMBER) RequestBody idNumber,
+                                   @Part(Constants.INSTITUTIONCODE) RequestBody institutionCode,
                                    @Part MultipartBody.Part  front_image,
-                                   @Part MultipartBody.Part  back_image);
+                                   @Part MultipartBody.Part  back_image,
+                                   @Part("gender") RequestBody gender );
 
     @POST("api/client/validate")
     Call<EmailCheckResponse> checkEmail(@Body ValidateEmailModel validateEmailModel);
@@ -53,6 +58,13 @@ public interface ApiDataService {
 
     @POST("api/client/validate")
     Call<EmailCheckResponse> checkPhone(@Body HashMap<String, String> fields);
+
     @POST("api/client/login")
     Call<LoginResponse> login(@Body LoginModel loginModel);
+
+    @POST("api/client/logout")
+    Call<LogoutResponse> logout(@Body LogoutModel logoutModel);
+
+    @POST("api/wallet/register")
+    Call<WalletResponse> walletReg(@Body WalletPost walletPost);
 }

@@ -220,6 +220,7 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="account">Account</string>
     <string name="sendAgain">Send Again</string>
+    <string name="logout_msg">You are successfully logout from the Wallet</string>
 
 
     <string-array name="filters">

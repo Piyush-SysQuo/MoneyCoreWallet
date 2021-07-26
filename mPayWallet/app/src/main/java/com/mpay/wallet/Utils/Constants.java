@@ -23,8 +23,7 @@ public class Constants {
     public static final String SUPPORT_PHONE     = "+337005954771";
 
 
-     public static String BASE_URL = "http://163.172.70.13:8080/";  //  staging Old
-//     public static String BASE_URL = "http://163.172.70.13:4200/";  //  staging
+     public static String BASE_URL = "http://163.172.70.13:8080/";  //  staging
 
 
     /*keys*/
@@ -45,14 +44,21 @@ public class Constants {
     public static final String INSTITUTIONCODE="institutionCode";
     public static final String FRONTIMAGE="front_image";
     public static final String BACKIMAGE="back_image";
-    /*public static final String KEY_DATA = "DATA";
-    public static final String KEY_NOTES = "cancel_notes";
-    public static final String CARE_GIVER = "care_giver";
-    public static final String KEY_EMAIL = "email";
-    public static final String KEY_PASSWORD = "password";
-    public static final String KEY_FIRST_NAME = "first_name";
-    public static final String KEY_FAMILY_NAME = "last_name";
-    public static final String KEY_MOBILE_NUMBER = "phone";
+
+    public static String APP_CLIENTCODE       =   "clientCode";
+    public static String APP_CLIENTFIRSTNAME  =   "firstName";
+    public static String APP_CLIENTLASTNAME   =   "lastName";
+    public static String APP_CLIENTEMAIL      =   "email";
+    public static String APP_CLIENTPHONE      =   "prPhone1";
+    public static String APP_CLIENTWALLETID   =   "walletId";
+    public static String APP_CLIENTWALLETTYPE   =   "walletType";
+    public static String APP_CLIENTQRCODE   =   "qrCode";
+    public static String APP_CLIENTINSTITUTIONCODE   =   "institutionCode";
+    public static String APP_CLIENTSTATUSCODE   =   "statusCode";
+    public static String APP_CLIENTACCOUNTNUMBER   =   "accountNumber";
+    public static String APP_CLIENTENTRYCODE   =   "entityCode";
+
+    /*public static final String KEY_MOBILE_NUMBER = "phone";
     public static final String KEY_ROLE = "role";
     public static final String KEY_PATIENT_ROLE = "3";
     public static final String KEY_DOB = "dob";

@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.Progress;
-import com.mpay.wallet.View.Activity.Login.LoginActivity;
+import com.mpay.wallet.View.Activity.Login.VIEW.LoginActivity;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {

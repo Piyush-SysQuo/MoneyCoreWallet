@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mpay.wallet.R;
-import com.mpay.wallet.View.Activity.Login.LoginActivity;
-import com.mpay.wallet.View.Activity.Signup.SignupSecondActivity;
 import com.mpay.wallet.View.Activity.Transfer_Receipt.TransferReceiptActivity;
 
 public class SuccessfulTransferActivity extends AppCompatActivity implements View.OnClickListener {

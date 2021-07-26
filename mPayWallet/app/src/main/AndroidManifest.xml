@@ -111,7 +111,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.Login.LoginActivity"
+            android:name=".View.Activity.Login.VIEW.LoginActivity"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -229,7 +229,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.More.MoreActivity"
+            android:name=".View.Activity.More.VIEW.MoreActivity"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -84,6 +84,58 @@ public class SharedPreferenceAmount {
         editor.commit();
     }
 
+
+    public void setString_WalletID(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_WalletType(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_QRCode(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_AccNumber(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_EntryCode(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_StatusCode(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_ClientCode(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_InstitutionCode(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_FName(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setString_LName(String key, String value) {
+        SharedPreferences.Editor editor = fSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
     /**
      * Get string value from preference
      *
@@ -113,6 +165,36 @@ public class SharedPreferenceAmount {
         return fSharedPreferences.getString(key, null);
     }
     public String getString_Language(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_WalletID(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_WalletType(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_QRCode(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_AccNumber(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_EntryCode(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_StatusCode(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_ClientCode(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_InstitutionCode(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_FName(String key) {
+        return fSharedPreferences.getString(key, null);
+    }
+    public String getString_LName(String key) {
         return fSharedPreferences.getString(key, null);
     }
 

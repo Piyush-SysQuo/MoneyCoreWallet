@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Activity.Login.LoginActivity"
+    tools:context=".View.Activity.Login.VIEW.LoginActivity"
     android:background="@color/white">
 <RelativeLayout
     android:id="@+id/Relative_Header"

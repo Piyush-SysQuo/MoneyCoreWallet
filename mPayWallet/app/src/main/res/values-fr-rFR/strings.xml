@@ -207,6 +207,7 @@
     <string name="enter_new_phone_number">Enter New Phone Number</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="account">Account</string>
+    <string name="logout_msg">You are successfully logout from the Wallet</string>
 
 
     <string-array name="id_proof">
@@ -229,4 +230,22 @@
         <item>Last Month</item>
         <item>Custom Date</item>
     </string-array>
+    <string name="sendAgain">Send Again</string>
+
+
+    <string-array name="space_name">
+        <item>Space-1</item>
+        <item>Space-2</item>
+        <item>Space-3</item>
+    </string-array>
+    <string name="title_activity_o_t_p_verification">OTPVerificationActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_verification">VerificationActivity</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="title_activity_new_password">NewPasswordActivity</string>
+    <string name="password_reset">Password Reset</string>
 </resources>

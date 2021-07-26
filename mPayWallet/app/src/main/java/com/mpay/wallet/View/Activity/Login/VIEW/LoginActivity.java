@@ -1,4 +1,4 @@
-package com.mpay.wallet.View.Activity.Login;
+package com.mpay.wallet.View.Activity.Login.VIEW;
 
 import android.Manifest;
 import android.app.KeyguardManager;
@@ -50,13 +50,14 @@ import com.mpay.wallet.Utils.Validation;
 import com.mpay.wallet.View.Activity.BioMetric.FingerprintHandler;
 import com.mpay.wallet.View.Activity.ForgotPassword.ForgotPasswordActivity;
 import com.mpay.wallet.View.Activity.Home.HomeActivity;
+import com.mpay.wallet.View.Activity.Home.model.ClientCodePost;
+import com.mpay.wallet.View.Activity.Home.model.InstitutionCodePost;
+import com.mpay.wallet.View.Activity.Home.model.WalletPost;
+import com.mpay.wallet.View.Activity.Home.viewmodel.WalletViewModel;
 import com.mpay.wallet.View.Activity.Login.model.LoginModel;
 import com.mpay.wallet.View.Activity.Login.viewmodel.LoginViewModel;
 import com.mpay.wallet.View.Activity.Signup.SignupActivity;
-import com.mpay.wallet.View.Activity.Signup.SignupSecondActivity;
-import com.mpay.wallet.View.Activity.Signup.viewmodel.SignUpViewModel;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -122,12 +123,14 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        TV_Login_select_Lng         = findViewById(R.id.TV_Login_select_Lng);
-        IV_login_Bio                = findViewById(R.id.IV_login_Bio);
-        Login_EditText_Email        = findViewById(R.id.Login_EditText_Email);
-        Login_EditText_Password     = findViewById(R.id.Login_EditText_Password);
-        MTIL_Login_emailLayout      = findViewById(R.id.MTIL_Login_emailLayout);
-        MTIL_Login_passwordLayout   = findViewById(R.id.MTIL_Login_passwordLayout);
+
+
+        TV_Login_select_Lng    = findViewById(R.id.TV_Login_select_Lng);
+        IV_login_Bio    = findViewById(R.id.IV_login_Bio);
+        Login_EditText_Email    = findViewById(R.id.Login_EditText_Email);
+        Login_EditText_Password    = findViewById(R.id.Login_EditText_Password);
+        MTIL_Login_emailLayout    = findViewById(R.id.MTIL_Login_emailLayout);
+        MTIL_Login_passwordLayout    = findViewById(R.id.MTIL_Login_passwordLayout);
         // initialize progress dialog instance
         progress = new Progress(this);
         (Objects.requireNonNull(progress.getWindow())).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -136,11 +139,12 @@ public class LoginActivity extends AppCompatActivity {
 
         language = "en";
 
+
+
 //        FingerPrint Hardwae Checking
         FingerPrint_Hardwae_Checking();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     public void FingerPrint_Hardwae_Checking()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -186,13 +190,11 @@ public class LoginActivity extends AppCompatActivity {
             IV_login_Bio.setVisibility(View.GONE);
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     public void attemptLogin(View view) {
         Validation validation = new Validation(this);
         if(validation.ValidateEmail(this))
         {
-            try {
+            /*try {
                 File f = new File(
                         "/data/data/com.mpay.wallet/shared_prefs/mpaywallet.app.amt.xml");
                 if (f.exists())
@@ -206,17 +208,20 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferenceAmount.getInstance(getApplicationContext()).setString_ReceivedAmount(Constants.RECIVED_AMOUNT, "00.00");
                     SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Mail(Constants.EMAIL, Login_EditText_Email.getText().toString());
                 }
-                /*if(SharedPreferenceAmount.getInstance(getApplicationContext()).getString(Constants.LOGIN).equals("true")) {
-
-                }
-                else if (SharedPreferenceAmount.getInstance(getApplicationContext()))
-                else{
-
-                }*/
             }catch (Exception e){
                 e.printStackTrace();
-            }
+            }*/
+            if(SharedPreferenceAmount.getInstance(getApplicationContext()).getString(Constants.LOGIN).equals("true"))
+            {
 
+            }
+            else
+            {
+                SharedPreferenceAmount.getInstance(getApplicationContext()).setString_TotAmount(Constants.TOTAL_AMOUNT, "2500.00");
+                SharedPreferenceAmount.getInstance(getApplicationContext()).setString_SendAmount(Constants.SPENT_AMOUNT, "00.00");
+                SharedPreferenceAmount.getInstance(getApplicationContext()).setString_ReceivedAmount(Constants.RECIVED_AMOUNT, "00.00");
+                SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Mail(Constants.EMAIL, Constants.APP_CLIENTEMAIL);
+            }
 
             progress.show();
             // call sign up api
@@ -230,48 +235,107 @@ public class LoginActivity extends AppCompatActivity {
                 progress.hide();
 
                 if(response!=null){
-                    boolean status = response.isStatus();
+                    boolean status = response.getStatus();
                     if(status){
+                        Constants.APP_CLIENTCODE        = response.getResult().getClientCode().toString();
 
-                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Mail(Constants.EMAIL, Login_EditText_Email.getText().toString());
+                        Constants.APP_CLIENTFIRSTNAME   = response.getResult().getFirstName().toString();
+                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_FName("firstName", response.getResult().getFirstName().toString());
+
+                        Constants.APP_CLIENTLASTNAME   = response.getResult().getLastName().toString();
+                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_LName("lastName", response.getResult().getLastName().toString());
+
+                        Constants.APP_CLIENTEMAIL   = response.getResult().getEmail().toString();
+                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString_Mail("email", response.getResult().getEmail().toString());
+
+                        Constants.APP_CLIENTEMAIL       = response.getResult().getEmail().toString();
+                        Constants.APP_CLIENTPHONE       = response.getResult().getPrPhone1().toString();
+
+                        SharedPreferenceAmount.getInstance(getApplicationContext()).setString(Constants.LOGIN, "true");
+//                        registerWallet();
+
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                         intent.putExtra(Constants.KEY_LANGUAGE,language);
                         startActivity(intent);
                         finish();
+
                     }else{
                         openDialog(response.getMessage());
                     }
                 }
                 else{
                     openDialog("Something went wrong");
+//                    openDialog(signUpResponse.getMessage());
                 }
             });
+
+
         }
     }
 //------------------------------------------------------------------------------------------------\\
 //------------------------------------------------------------------------------------------------//
+    /*public void registerWallet(){
+        WalletViewModel viewModel = ViewModelProviders.of(LoginActivity.this).get(WalletViewModel.class);
+        viewModel.init();
+        ClientCodePost clientCodePost   =   new ClientCodePost(Integer.parseInt(Constants.APP_CLIENTCODE));
+//        clientCodePost.setClientCodePost(Integer.parseInt(Constants.APP_CLIENTCODE));
+        clientCodePost.setClientCodePost(35);
+
+        InstitutionCodePost institutionCodePost =   new InstitutionCodePost("MC");
+        institutionCodePost.setInstitutionCodePost("MC");
+
+        WalletPost walletPost =   new WalletPost();
+        walletPost.setClientCodePost(clientCodePost);
+        walletPost.setInstitutionCodePost(institutionCodePost);
+        walletPost.setStatusCode("N");
+
+        viewModel.WalletRegistration(walletPost);
+        viewModel.getVolumesResponseLiveData().observe(LoginActivity.this, response -> {
+
+//            progress.hide();
+
+            if(response!=null){
+                boolean status = response.getStatus();
+                if(status){
+                    Constants.APP_CLIENTWALLETID    = response.getResult().getWalletId();
+                    Constants.APP_CLIENTWALLETTYPE  = response.getResult().getWalletType();
+//                    Constants.APP_CLIENTQRCODE      = response.getResult().getQrCode();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    intent.putExtra(Constants.KEY_LANGUAGE,language);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    openDialog(response.getMessage());
+                }
+            }
+            else{
+                openDialog("Something went wrong");
+//                    openDialog(signUpResponse.getMessage());
+            }
+        });
+    }*/
+//------------------------------------------------------------------------------------------------\\
+//------------------------------------------------------------------------------------------------//
+
     public void forgotPassword(View view) {
         Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
         intent.putExtra(Constants.KEY_LANGUAGE,language);
         startActivity(intent);
         finish();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     public void signUpClick(View view) {
         Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
         intent.putExtra(Constants.KEY_LANGUAGE,language);
         startActivity(intent);
         finish();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     public void backPressed(View view) {
         finish();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     private void openDialog(String msg){
+
         AlertPopup mAlert = new AlertPopup(this);
         mAlert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mAlert.setMessage(msg);
@@ -284,14 +348,14 @@ public class LoginActivity extends AppCompatActivity {
         });
         mAlert.show();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     public void BioMateric(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //Fingerprint API only available on from Android 6.0 (M)
             fingerprintManager = (FingerprintManager) this.getSystemService(Context.FINGERPRINT_SERVICE);
             if (fingerprintManager.hasEnrolledFingerprints()) {
 //                startActivity(new Intent(getApplicationContext(), BiometricActivity.class));
+
                 BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
                         .setTitle("Verification")
                         .setSubtitle("Login Authentication!!!")
@@ -302,19 +366,29 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     @Override
     public void onBackPressed() {
         finish();
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
+
     public void changeLanguage(View view) {
+        /*PackageInfo pInfo = null;
+        try {
+            pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String version = pInfo.versionName;
+        Intent intent = new Intent(LoginActivity.this, ChangeLanguageActivity.class);
+        intent.putExtra("caller", "LoginActivity");
+        intent.putExtra("packageNm", LoginActivity.this.getCallingPackage());
+        startActivity(intent);
+        finish();*/
         showPopupMenu(view, true, R.style.MyPopupOtherStyle);
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     /**
      * Finger Print
      * @return
@@ -340,8 +414,6 @@ public class LoginActivity extends AppCompatActivity {
         BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, callback);
         return biometricPrompt;
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     /**
      * Checking the Security Settings
      */
@@ -356,8 +428,6 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     /**
      *  FingerPrint Permission Check
      */
@@ -403,8 +473,6 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     /**
      *  FingerPrint Permission Check
      */
@@ -422,8 +490,7 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     /**
      * Key Store
      */
@@ -463,8 +530,6 @@ public class LoginActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
     /**
      * Initializing the Cipher
      * Now that the key has been generated the next step is to initialize the cipher that will be
@@ -502,8 +567,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Creating the CryptoObject Instance
      */
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     /**
      * method responsible to show popup menu
      *
@@ -561,8 +625,7 @@ public class LoginActivity extends AppCompatActivity {
         popup.show();
 
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
+
     public  void setLocale(String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
@@ -571,6 +634,4 @@ public class LoginActivity extends AppCompatActivity {
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
-//------------------------------------------------------------------------------------------------\\
-//------------------------------------------------------------------------------------------------//
 }

@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.util.Patterns;
 import android.widget.Toast;
 
-import com.mpay.wallet.View.Activity.Login.LoginActivity;
+import com.mpay.wallet.View.Activity.Login.VIEW.LoginActivity;
 import com.mpay.wallet.View.Activity.Signup.SignupActivity;
 import com.mpay.wallet.View.Activity.Signup.SignupSecondActivity;
 import com.mpay.wallet.View.Fragment.Transfer.TransferFragment;

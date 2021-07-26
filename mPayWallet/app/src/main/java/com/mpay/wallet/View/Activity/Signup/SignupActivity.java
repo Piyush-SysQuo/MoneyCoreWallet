@@ -1,69 +1,33 @@
 package com.mpay.wallet.View.Activity.Signup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 import com.mpay.wallet.R;
 import com.mpay.wallet.Utils.AlertPopup;
 import com.mpay.wallet.Utils.Constants;
 import com.mpay.wallet.Utils.DatePickerDob;
 import com.mpay.wallet.Utils.Progress;
-import com.mpay.wallet.Utils.Utility;
 import com.mpay.wallet.Utils.Validation;
-import com.mpay.wallet.View.Activity.Login.LoginActivity;
+import com.mpay.wallet.View.Activity.Login.VIEW.LoginActivity;
 import com.mpay.wallet.View.Activity.Signup.model.ValidateEmailModel;
 import com.mpay.wallet.View.Activity.Signup.viewmodel.SignUpViewModel;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -118,8 +82,6 @@ public class SignupActivity extends AppCompatActivity implements DatePickerDialo
 
     public void Initialization()
     {
-
-
         // initialize progress dialog instance
         progress = new Progress(this);
         (Objects.requireNonNull(progress.getWindow())).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
